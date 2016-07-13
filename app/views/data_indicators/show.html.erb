@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Federal entity:</strong>
+  <%= @data_indicator.federal_entity %>
+</p>
+
+<p>
+  <strong>Main category:</strong>
+  <%= @data_indicator.main_category %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @data_indicator.category %>
+</p>
+
+<p>
+  <strong>Subcategory:</strong>
+  <%= @data_indicator.subcategory %>
+</p>
+
+<p>
+  <strong>Indicator:</strong>
+  <%= @data_indicator.indicator %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @data_indicator.year %>
+</p>
+
+<p>
+  <strong>Unit of measurement:</strong>
+  <%= @data_indicator.unit_of_measurement %>
+</p>
+
+<%= link_to 'Edit', edit_data_indicator_path(@data_indicator) %> |
+<%= link_to 'Back', data_indicators_path %>

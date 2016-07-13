@@ -1,0 +1,2 @@
+class DataIndicator < ApplicationRecord
+end
