@@ -1,11 +1,11 @@
-require 'excel_reader'
+require 'manager/migrate_data_manager'
 
 class WelcomeController < ApplicationController
 
   def readExcel
-    obj = ExcelReader.instance
+    migrateDataManager = MigrateDataManager.instance
     Thread.new{
-      list = obj.read_simple_excel
+      migrateDataManager.migrate
     }
     render json: Date.new()
   end
