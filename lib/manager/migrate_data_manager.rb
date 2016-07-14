@@ -1,5 +1,6 @@
 require 'singleton'
 require 'excel_reader'
+require 'manager/data_indicators_manager'
 
 class MigrateDataManager
 
@@ -7,10 +8,10 @@ class MigrateDataManager
 
   def migrate
     excelReader = ExcelReader.instance
-    map = excelReader.read_simple_excel
-    #leer libro excel
-    #wraper
-    #crear
+    dataIndicatorsManager = DataIndicatorsManager.instance
+    listOfRecords = excelReader.read_simple_excel
+    registro = dataIndicatorsManager.create(listOfRecords.first)
+    puts registro
   end
 
 end
