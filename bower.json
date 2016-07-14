@@ -1,0 +1,13 @@
+{
+  "name": "ICEM",
+  "version": "0.0.1",
+  "homepage": "https://github.com/makingdevs/ICEM",
+  "authors": [
+    "Jorge Acosta Lemus <jorge@makingdevs.com>"
+  ],
+  "description": "ICEM",
+  "license": "MIT",
+  "dependencies": {
+    "d3": "~4.1.1"
+  }
+}
