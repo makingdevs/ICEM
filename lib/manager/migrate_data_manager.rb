@@ -10,8 +10,9 @@ class MigrateDataManager
     excelReader = ExcelReader.instance
     dataIndicatorsManager = DataIndicatorsManager.instance
     listOfRecords = excelReader.read_simple_excel
-    registro = dataIndicatorsManager.create(listOfRecords.first)
-    puts registro
+    listOfRecords.each { |record|
+      dataIndicatorsManager.create(record)
+    }
   end
 
 end
