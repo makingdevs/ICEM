@@ -20,7 +20,9 @@ class WelcomeController < ApplicationController
     #los_de_25 = data_frame.where(data_frame["Age"].eq(25))
     #groups = los_de_25.group_by("Country")
     #s = ""
-    #data_frame.groups.each { |country,indexes| s << "#{country[0]}\t#{indexes.size}\n" }
-    render html: data_frame
+    #.html_safe.groups.each { |country,indexes| s << "#{country[0]}\t#{indexes.size}\n" }
+    #render html: data_frame.inspect
+    s = data_frame.to_s
+    render html: s.html_safe
   end
 end
