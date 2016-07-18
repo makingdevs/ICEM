@@ -1,7 +1,6 @@
 require 'manager/migrate_data_manager'
 require 'daru'
 require 'open-uri'
-require 'csv'
 
 class WelcomeController < ApplicationController
 
@@ -14,7 +13,16 @@ class WelcomeController < ApplicationController
   end
 
   def data_sample
-    data_frame = Daru::DataFrame.from_csv("Aguascalientes.csv")
+    #content1 = open('http://icem.com.s3.amazonaws.com/Aguascalientes.csv')
+    content1 = open('http://icem.com.s3.amazonaws.com/Aguascalientes.csv') { |f| f.read }
+    content2 = open('https://raw.githubusercontent.com/makingdevs/ICEM/master/Aguascalientes.csv')
+    puts content1
+    file = File.open("yourfile.csv", 'w') { |file| file.write(content1) }
+    puts content2
+
+    data_frame = Daru::DataFrame.from_csv file
+
+
     #content = open('http://icem.com.s3.amazonaws.com/01_Aguascalientes')
     #df = Daru::DataFrame.from_csv(houses)
     #los_de_25 = data_frame.where(data_frame["Age"].eq(25))
