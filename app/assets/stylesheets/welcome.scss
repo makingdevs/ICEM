@@ -1,3 +1,29 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "compass";
+
+@import "sing-theme/assets/sass/font";
+@import "sing-theme/assets/sass/variables";
+@import "sing-theme/assets/sass/mixins";
+
+@import "bootstrap-sass/assets/stylesheets/bootstrap";
+@import "font-awesome/scss/font-awesome";
+@import "animate.css/animate";
+@import "bootstrap-select/dist/css/bootstrap-select";
+@import "select2/select2"; //import as css to keep image urls correct
+@import "select2-bootstrap-css/lib/select2-bootstrap";
+@import "awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.scss";
+
+
+@import "sing-theme/assets/sass/bootstrap-override";
+@import "sing-theme/assets/sass/libs-override";
+
+@import "sing-theme/assets/sass/general";
+@import "sing-theme/assets/sass/global-transitions";
+@import "sing-theme/assets/sass/base";
+
+@import "sing-theme/assets/sass/widgets";
+@import "sing-theme/assets/sass/utils";
+@import "sing-theme/assets/sass/print";
