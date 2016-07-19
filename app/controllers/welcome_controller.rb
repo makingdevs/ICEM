@@ -14,23 +14,25 @@ class WelcomeController < ApplicationController
 
   def data_sample
     #content1 = open('http://icem.com.s3.amazonaws.com/Aguascalientes.csv')
-    content1 = open('http://icem.com.s3.amazonaws.com/Aguascalientes.csv') { |f| f.read }
-    content2 = open('https://raw.githubusercontent.com/makingdevs/ICEM/master/Aguascalientes.csv')
-    puts content1
-    file = File.open("yourfile.csv", 'w') { |file| file.write(content1) }
-    puts content2
-
-    data_frame = Daru::DataFrame.from_csv file
-
-
-    #content = open('http://icem.com.s3.amazonaws.com/01_Aguascalientes')
-    #df = Daru::DataFrame.from_csv(houses)
-    #los_de_25 = data_frame.where(data_frame["Age"].eq(25))
-    #groups = los_de_25.group_by("Country")
-    #s = ""
-    #.html_safe.groups.each { |country,indexes| s << "#{country[0]}\t#{indexes.size}\n" }
-    #render html: data_frame.inspect
-    s = data_frame.to_s
-    render html: s.html_safe
+    #content2 = open('https://raw.githubusercontent.com/makingdevs/ICEM/master/Aguascalientes.csv')
+    data_frame = Daru::DataFrame.from_csv('Aguascalientes.csv',encoding: "UTF-8")
+    #filtrar Seguridad pública y justicia
+    security = data_frame.where(data_frame["Tema_nivel_1"].eq('Seguridad pública y justicia'))
+    #filtrar delitos
+    security = data_frame.where(data_frame["UnidadMedida"].eq('Delitos'))
+    #filtrar estatal
+    security = data_frame.where(data_frame["Desc_municipio"].eq('Estatal'))
+    #filtrar Delitos registrados 
+    security = data_frame.where(data_frame["Tema_nivel_2"].eq('Delitos registrados'))
+    s = "Año\tAguascalientes\n"
+    (2010..2015).each do |year|
+      s << "#{year}\t#{security[year].sum || 0}\n"
+    end
+    render plain:s
   end
+
+  def security
+    
+  end
+
 end
