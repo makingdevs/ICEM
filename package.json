@@ -1,0 +1,25 @@
+{
+  "name": "icem",
+  "version": "1.0.0",
+  "description": "ICEM project",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "postinstall":"./node_modules/bower/bin/bower install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/makingdevs/ICEM.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/makingdevs/ICEM/issues"
+  },
+  "homepage": "https://github.com/makingdevs/ICEM#readme",
+  "dependencies": {
+    "bower": "^1.7.9"
+  }
+}

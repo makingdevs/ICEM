@@ -28,7 +28,6 @@ config/initializers/secret_token.rb
 
 # if using bower-rails ignore default bower_components path bower.json files
 /vendor/assets/bower_components
-*.bowerrc
 
 # Ignore pow environment settings
 .powenv
@@ -39,3 +38,5 @@ config/initializers/secret_token.rb
 .DS_Store
 ../.DS_Store
 app/assets/javascripts/third-party/
+node_modules/
+vendor/assets/third-party/
