@@ -1,17 +1,8 @@
-require 'manager/migrate_data_manager'
 require 'manager/data_provider'
 require 'daru'
 require 'open-uri'
 
 class WelcomeController < ApplicationController
-
-  def read_excel
-    migrateDataManager = MigrateDataManager.instance
-    Thread.new{
-      migrateDataManager.migrate
-    }
-    render json: Date.new()
-  end
 
   def data_sample
     #content1 = open('http://icem.com.s3.amazonaws.com/Aguascalientes.csv')
