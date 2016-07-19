@@ -61,15 +61,8 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-function type(d) {
-  d.Aguascalientes = +d.Aguascalientes; // coerce to number
-  return d;
-}
-
-d3.tsv("/data",type, function(error, data) {
+d3.tsv("/data", function(error, data) {
   if (error) throw error;
-
-  debugger;
 
   color.domain(d3.keys(data[0]).filter(function(key) { return key !== "date"; }));
 
