@@ -24,9 +24,9 @@ class WelcomeController < ApplicationController
     security = data_frame.where(data_frame["Desc_municipio"].eq('Estatal'))
     #filtrar Delitos registrados 
     security = data_frame.where(data_frame["Tema_nivel_2"].eq('Delitos registrados'))
-    s = "Año\tAguascalientes\n"
+    s = "date\tAguascalientes\n"
     (2010..2015).each do |year|
-      s << "#{year}\t#{security[year].sum || 0}\n"
+      s << "#{year}0101\t#{security[year].sum || 0}\n"
     end
     render plain:s
   end
