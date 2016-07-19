@@ -1,4 +1,5 @@
 require 'manager/migrate_data_manager'
+require 'manager/data_provider'
 require 'daru'
 require 'open-uri'
 
@@ -15,8 +16,9 @@ class WelcomeController < ApplicationController
   def data_sample
     #content1 = open('http://icem.com.s3.amazonaws.com/Aguascalientes.csv')
     #content2 = open('https://raw.githubusercontent.com/makingdevs/ICEM/master/Aguascalientes.csv')
-    data_frame_aguascalientes = Daru::DataFrame.from_csv('Aguascalientes.csv',encoding: "UTF-8")
-    data_frame_baja_california = Daru::DataFrame.from_csv('Baja_California.csv',encoding: "UTF-8")
+    data_manager = DataProvider.instance
+    data_frame_aguascalientes = data_manager.data_frame_aguascalientes
+    data_frame_baja_california = data_manager.data_frame_baja_california
     #filtrar Seguridad pública y justicia
     #security = data_frame.where(data_frame["Tema_nivel_1"].eq('Seguridad pública y justicia'))
     #filtrar delitos
