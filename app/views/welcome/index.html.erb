@@ -1,107 +1,15 @@
-<nav id="sidebar" class="sidebar" role="navigation">
-  <div class="js-sidebar-content">
-    <header class="logo hidden-xs">
-      <a href="index.html">ICEM</a>
-    </header>
-    <ul class="sidebar-nav">
-      <li class="active">
-        <a href="#sidebar-dashboard" data-toggle="collapse" data-parent="#sidebar">
-          <span class="icon">
-            <i class="fa fa-desktop"></i>
-          </span>
-          Dashboard
-          <i class="toggle fa fa-angle-down"></i>
-        </a>
-        <ul id="sidebar-dashboard" class="collapse in">
-          <li class="active"><a href="index.html">Dashboard</a></li>
-        </ul>
-      </li>
-    </ul>
-  </div>
-</nav>
+<h1 class="page-title">Dashboard <small><small>The Lucky One</small></small></h1>
+<div class="row">
 
-<nav class="page-controls navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <ul class="nav navbar-nav">
-        <li>
-          <a class="hidden-sm hidden-xs" id="nav-state-toggle" href="#" title="Turn on/off sidebar collapsing" data-placement="bottom">
-            <i class="fa fa-bars fa-lg"></i>
-          </a>
-          <a class="visible-sm visible-xs" id="nav-collapse-toggle" href="#" title="Show/hide sidebar" data-placement="bottom">
-            <span class="rounded rounded-lg bg-gray text-white visible-xs"><i class="fa fa-bars fa-lg"></i></span>
-            <i class="fa fa-bars fa-lg hidden-xs"></i>
-          </a>
-        </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right visible-xs">
-        <li>
-          <a href="#" data-toggle="chat-sidebar">
-            <span class="rounded rounded-lg bg-gray text-white"><i class="fa fa-globe fa-lg"></i></span>
-          </a>
-        </li>
-      </ul>
-      <a class="navbar-brand visible-xs" href="index.html">
-        <i class="fa fa-circle text-gray mr-n-sm"></i>
-        <i class="fa fa-circle text-warning"></i>
-        &nbsp;
-        sing
-        &nbsp;
-        <i class="fa fa-circle text-warning mr-n-sm"></i>
-        <i class="fa fa-circle text-gray"></i>
-      </a>
-    </div>
-
-    <div class="collapse navbar-collapse">
-      <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <div class="input-group input-group-no-border">
-            <span class="input-group-addon">
-              <i class="fa fa-search"></i>
-            </span>
-            <input class="form-control" type="text" placeholder="Search Dashboard">
-          </div>
-        </div>
-      </form>
-      <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            <i class="fa fa-cog fa-lg"></i>
-          </a>
-          <ul class="dropdown-menu">
-            <li><a href="#"><i class="glyphicon glyphicon-user"></i> &nbsp; My Account</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Calendar</a></li>
-            <li><a href="#">Inbox &nbsp;&nbsp;<span class="badge bg-danger animated bounceIn">9</span></a></li>
-            <li class="divider"></li>
-            <li><a href="login.html"><i class="fa fa-sign-out"></i> &nbsp; Log Out</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<div class="content-wrap">
-  <main id="content" class="content" role="main">
-    <h1 class="page-title">Dashboard <small><small>The Lucky One</small></small></h1>
-    <div class="row">
-
-      <div class="col-md-8">
-        <section class="widget bg-transparent">
-          <div class="widget-body">
-            <div id="graph"></div>
-          </div>
-        </section>
+  <div class="col-md-8">
+    <section class="widget bg-transparent">
+      <div class="widget-body">
+        <div id="graph"></div>
       </div>
+    </section>
+  </div>
 
-      <div class="col-md-4">
-      </div>
+  <div class="col-md-4">
+  </div>
 
-    </div>
-  </main>
-</div>
-
-<div class="loader-wrap hiding hide">
-  <i class="fa fa-circle-o-notch fa-spin-fast"></i>
 </div>
