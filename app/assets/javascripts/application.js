@@ -28,4 +28,4 @@
 //= require sing-theme/assets/javascripts/app
 //= require sing-theme/assets/javascripts/index
 
-//= require_tree .
+//= require welcome/index
