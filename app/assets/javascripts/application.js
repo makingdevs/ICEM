@@ -26,6 +26,5 @@
 //= require jquery-touchswipe/jquery.touchSwipe
 //= require sing-theme/assets/javascripts/settings
 //= require sing-theme/assets/javascripts/app
-//= require sing-theme/assets/javascripts/index
 
 //= require welcome/index
