@@ -14,9 +14,7 @@
           <strong>Panel de control</strong>
         </h5>
         <div class="widget-controls">
-          <a class="bg-gray-transparent" href="#"><i class="glyphicon glyphicon-cog text-white"></i></a>
-          <a href="#"><i class="fa fa-refresh"></i></a>
-          <a href="#" data-widgster="close"><i class="glyphicon glyphicon-remove"></i></a>
+          <a href="#" data-widgster="close"><i class="fa fa-times" aria-hidden="true"></i></i></a>
         </div>
       </header>
 
@@ -32,19 +30,19 @@
                   Selecciona la entidad federativa que desea visualizar. 
                 </p>
                 <div class="checkbox">
-                  <input id="checkbox1" type="checkbox">
+                  <input id="checkbox1" type="checkbox" checked="checked">
                   <label for="checkbox1">
                     Aguascalientes
                   </label>
                 </div>
                 <div class="checkbox checkbox-primary">
-                  <input id="checkbox2" type="checkbox" checked="">
+                  <input id="checkbox2" type="checkbox" checked="checked">
                   <label for="checkbox2">
                     Baja California
                   </label>
                 </div>
                 <div class="checkbox checkbox-success">
-                  <input id="checkbox3" type="checkbox">
+                  <input id="checkbox3" type="checkbox" checked="checked">
                   <label for="checkbox3">
                     Baja California Sur
                   </label>
@@ -56,15 +54,20 @@
                   </label>
                 </div>
                 <div class="checkbox checkbox-warning">
-                  <input id="checkbox5" type="checkbox">
+                  <input id="checkbox5" type="checkbox" checked="checked">
                   <label for="checkbox5">
                     Coahuila de Zaragoza
                   </label>
                 </div>
               </fieldset>
+              <br/>
               <fieldset>
+                <legend>
+                Rangos de años
+                </legend>
                 <div id="range"></div>
               </fieldset>
+              <br/><br/>
             </div>
           </div>
         </form>
