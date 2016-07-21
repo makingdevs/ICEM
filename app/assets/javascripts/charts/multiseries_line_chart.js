@@ -1,7 +1,7 @@
 var MultiseriesLineChart = (function(){
 
   var start = function() {
-    return renderGraph("");
+    renderGraph("");
   };
 
   var renderGraph = function(parameters){
@@ -96,7 +96,6 @@ var MultiseriesLineChart = (function(){
       .attr("dy", ".35em")
       .text(function(d) { return d.name; });
     });
-    return svg;
   };
 
   return {
