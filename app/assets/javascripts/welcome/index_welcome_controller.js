@@ -1,12 +1,15 @@
 var IndexWelcomeController = (function(){
 
+  var slider = $("#range").get( 0 )
+
   var start = function() {
     initSlider();
     MultiseriesLineChart.start();
+    bindEvents();
   };
 
   var initSlider = function(){
-    noUiSlider.create($("#range").get( 0 ), {
+    noUiSlider.create(slider, {
       start: [ 2010, 2015 ],
       step: 1,
       margin: 1,
@@ -24,6 +27,13 @@ var IndexWelcomeController = (function(){
   };
 
   var bindEvents = function() {
+    slider.noUiSlider.on('change', function(){
+      updateGraph();
+    });
+  };
+
+  var updateGraph = function(){
+    
   };
 
   return {
