@@ -44,7 +44,7 @@ var IndexWelcomeController = (function(){
     var range = slider.noUiSlider.get()
     var startRange = "startRange="+range[0]
     var endRange = "endRange="+range[1]
-    MultiseriesLineChart.updateGrap(startRange+"&"+endRange)
+    MultiseriesLineChart.renderGraph(startRange+"&"+endRange);
   };
 
   return {
