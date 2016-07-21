@@ -88,3 +88,14 @@ d3.tsv("/data", function(error, data) {
       .attr("dy", ".35em")
       .text(function(d) { return d.name; });
 });
+
+var connectSlider = document.getElementById('range');
+
+noUiSlider.create(connectSlider, {
+  start: [20, 80],
+  connect: false,
+  range: {
+    'min': 0,
+    'max': 100
+  }
+});
