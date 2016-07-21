@@ -25,7 +25,11 @@ class WelcomeController < ApplicationController
     security_coahuila_de_zaragoza = security_coahuila_de_zaragoza.where(security_coahuila_de_zaragoza["Tema_nivel_2"].eq('Delitos registrados'))
 
     s = "date\tAguascalientes\tBaja California\tBaja California Sur\tCampeche\tCoahuila de Zaragoza\n"
-    (2010..2015).each do |year|
+
+    startRange = (params[:startRange] || 2010).to_i
+    endRange = (params[:endRange] || 2015).to_i
+
+    (startRange..endRange).each do |year|
       s << "#{year}0101\t#{security_aguascalientes[year].sum || 0}\t#{security_baja_california[year].sum || 0}\t#{security_baja_california_sur[year].sum || 0}\t#{security_campeche[year].sum || 0}\t#{security_coahuila_de_zaragoza[year].sum || 0}\n"
     end
 
