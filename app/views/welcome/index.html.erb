@@ -1,15 +1,75 @@
 <h1 class="page-title">Dashboard <small><small>The Lucky One</small></small></h1>
 <div class="row">
 
-  <div class="col-md-8">
-    <section class="widget bg-transparent">
+  <div class="col-md-7">
+    <div class="widget-body">
+      <div id="graph"></div>
+    </div>
+  </div>
+
+  <div class="col-md-5">
+    <section class="widget">
+      <header>
+        <h5>
+          <strong>Panel de control</strong>
+        </h5>
+        <div class="widget-controls">
+          <a class="bg-gray-transparent" href="#"><i class="glyphicon glyphicon-cog text-white"></i></a>
+          <a href="#"><i class="fa fa-refresh"></i></a>
+          <a href="#" data-widgster="close"><i class="glyphicon glyphicon-remove"></i></a>
+        </div>
+      </header>
+
       <div class="widget-body">
-        <div id="graph"></div>
+        <form role="form">
+          <div class="row">
+            <div class="col-md-12">
+              <fieldset>
+                <legend>
+                  Entidades Federativas
+                </legend>
+                <p>
+                  Selecciona la entidad federativa que desea visualizar. 
+                </p>
+                <div class="checkbox">
+                  <input id="checkbox1" type="checkbox">
+                  <label for="checkbox1">
+                    Aguascalientes
+                  </label>
+                </div>
+                <div class="checkbox checkbox-primary">
+                  <input id="checkbox2" type="checkbox" checked="">
+                  <label for="checkbox2">
+                    Baja California
+                  </label>
+                </div>
+                <div class="checkbox checkbox-success">
+                  <input id="checkbox3" type="checkbox">
+                  <label for="checkbox3">
+                    Baja California Sur
+                  </label>
+                </div>
+                <div class="checkbox checkbox-info">
+                  <input id="checkbox4" type="checkbox" checked="">
+                  <label for="checkbox4">
+                    Campeche
+                  </label>
+                </div>
+                <div class="checkbox checkbox-warning">
+                  <input id="checkbox5" type="checkbox">
+                  <label for="checkbox5">
+                    Coahuila de Zaragoza
+                  </label>
+                </div>
+              </fieldset>
+              <fieldset>
+                <div id="range"></div>
+              </fieldset>
+            </div>
+          </div>
+        </form>
       </div>
     </section>
   </div>
-
-  <div class="col-md-4">
-  </div>
-
+  
 </div>
