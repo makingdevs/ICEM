@@ -22,6 +22,14 @@ var IndexWelcomeController = (function(){
       pips: {
         mode: 'steps',
         density: 20
+      },
+      format: {
+        to: function ( value ) {
+          return value;
+        },
+        from: function ( value ) {
+          return value;
+        }
       }
     });
   };
@@ -33,7 +41,10 @@ var IndexWelcomeController = (function(){
   };
 
   var updateGraph = function(){
-    
+    var range = slider.noUiSlider.get()
+    var startRange = "startRange="+range[0]
+    var endRange = "endRange="+range[1]
+    MultiseriesLineChart.updateGrap(startRange+"&"+endRange)
   };
 
   return {
