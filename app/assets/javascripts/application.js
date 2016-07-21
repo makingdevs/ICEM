@@ -27,5 +27,6 @@
 //= require sing-theme/assets/javascripts/settings
 //= require sing-theme/assets/javascripts/app
 //= require d3/d3
+//= require nouislider/distribute/nouislider
 
 //= require welcome/index
