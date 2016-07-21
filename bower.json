@@ -20,6 +20,7 @@
     "jquery-pjax": "~1.9.6",
     "bootstrap-select": "~1.10.0",
     "jquery-ujs": "~1.2.1",
-    "fontawesome": "fontawesome#~4.6.3"
+    "fontawesome": "fontawesome#~4.6.3",
+    "nouislider": "~8.5.1"
   }
 }
