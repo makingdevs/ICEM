@@ -15,12 +15,12 @@ class DataProvider
   end
 
   def getDataFrames(states)
-    listStates = states.split(",")
-    data_frames = { "Ags" => @data_frame_aguascalientes, 
+    data_frames = { "AGS" => @data_frame_aguascalientes, 
                     "BC" => @data_frame_baja_california,
                     "BCS" => @data_frame_baja_california_sur,
-                    "Camp" => @data_frame_campeche,
-                    "Coah" => @data_frame_coahuila_de_zaragoza}
+                    "CAMP" => @data_frame_campeche,
+                    "COAH" => @data_frame_coahuila_de_zaragoza}
+    listStates = states ? states.split(",") : data_frames.keys
     mapDataFrames = {}
     listStates.each do |state|
       mapDataFrames[state] = data_frames[state]
