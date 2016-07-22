@@ -8,6 +8,12 @@ var IndexWelcomeController = (function(){
     bindEvents();
   };
 
+  var bindEvents = function() {
+    slider.noUiSlider.on('change', function(){
+      updateGraph();
+    });
+  };
+
   var initSlider = function(){
     noUiSlider.create(slider, {
       start: [ 2010, 2015 ],
@@ -34,18 +40,23 @@ var IndexWelcomeController = (function(){
     });
   };
 
-  var bindEvents = function() {
-    slider.noUiSlider.on('change', function(){
-      updateGraph();
-    });
+  var updateGraph = function(){
+    MultiseriesLineChart.renderGraph(getDataForm());
   };
 
-  var updateGraph = function(){
-    var range = slider.noUiSlider.get()
-    var startRange = "startRange="+range[0]
-    var endRange = "endRange="+range[1]
-    MultiseriesLineChart.renderGraph(startRange+"&"+endRange);
-  };
+  var getDataForm = function(){
+    data = {};
+    data.state = "";
+    $("#indicators").find("input").each(function(index,selector){
+      if ($(selector).is(":checked")) {
+        data.state += selector.name.concat(",")
+      }
+    });
+    var range = slider.noUiSlider.get();
+    data.startRange = range[0];
+    data.endRange = range[1];
+    return data
+  }
 
   return {
     start: start
