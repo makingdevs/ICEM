@@ -9,9 +9,8 @@ var IndexWelcomeController = (function(){
   };
 
   var bindEvents = function() {
-    slider.noUiSlider.on('change', function(){
-      updateGraph();
-    });
+    slider.noUiSlider.on('change', updateGraph);
+    $(".checkbox").on('click', updateGraph)
   };
 
   var initSlider = function(){
