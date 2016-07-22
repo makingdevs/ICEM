@@ -14,4 +14,18 @@ class DataProvider
     @data_frame_coahuila_de_zaragoza = Daru::DataFrame.from_csv('Coahuila_de_Zaragoza.csv',encoding: "UTF-8")
   end
 
+  def getDataFrames(states)
+    listStates = states.split(",")
+    data_frames = { "Ags" => @data_frame_aguascalientes, 
+                    "BC" => @data_frame_baja_california,
+                    "BCS" => @data_frame_baja_california_sur,
+                    "Camp" => @data_frame_campeche,
+                    "Coah" => @data_frame_coahuila_de_zaragoza}
+    mapDataFrames = {}
+    listStates.each do |state|
+      mapDataFrames[state] = data_frames[state]
+    end
+    mapDataFrames
+  end
+
 end
