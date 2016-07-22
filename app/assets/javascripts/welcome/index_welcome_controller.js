@@ -40,6 +40,7 @@ var IndexWelcomeController = (function(){
   };
 
   var updateGraph = function(){
+    $(".center-block").removeClass("hidden")
     MultiseriesLineChart.renderGraph(getDataForm());
   };
 
