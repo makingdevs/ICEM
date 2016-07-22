@@ -5,39 +5,36 @@ require 'open-uri'
 class WelcomeController < ApplicationController
 
   def data_sample
-    data_manager = DataProvider.instance
-    data_frame_aguascalientes = data_manager.data_frame_aguascalientes
-    data_frame_baja_california = data_manager.data_frame_baja_california
-    data_frame_baja_california_sur = data_manager.data_frame_baja_california_sur
-    data_frame_campeche = data_manager.data_frame_campeche
-    data_frame_coahuila_de_zaragoza = data_manager.data_frame_coahuila_de_zaragoza
-
-    security_aguascalientes = data_frame_aguascalientes.where(data_frame_aguascalientes["UnidadMedida"].eq('Delitos'))
-    security_baja_california = data_frame_baja_california.where(data_frame_aguascalientes["UnidadMedida"].eq('Delitos'))
-    security_baja_california_sur = data_frame_baja_california_sur.where(data_frame_baja_california_sur["UnidadMedida"].eq('Delitos'))
-    security_campeche = data_frame_campeche.where(data_frame_campeche["UnidadMedida"].eq('Delitos'))
-    security_coahuila_de_zaragoza = data_frame_coahuila_de_zaragoza.where(data_frame_coahuila_de_zaragoza["UnidadMedida"].eq('Delitos'))
-
-    security_aguascalientes = security_aguascalientes.where(security_aguascalientes["Tema_nivel_2"].eq('Delitos registrados'))
-    security_baja_california = security_baja_california.where(security_baja_california["Tema_nivel_2"].eq('Delitos registrados'))
-    security_baja_california_sur = security_baja_california_sur.where(security_baja_california_sur["Tema_nivel_2"].eq('Delitos registrados'))
-    security_campeche = security_campeche.where(security_campeche["Tema_nivel_2"].eq('Delitos registrados'))
-    security_coahuila_de_zaragoza = security_coahuila_de_zaragoza.where(security_coahuila_de_zaragoza["Tema_nivel_2"].eq('Delitos registrados'))
-
-    s = "date\tAguascalientes\tBaja California\tBaja California Sur\tCampeche\tCoahuila de Zaragoza\n"
-
     startRange = (params[:startRange] || 2010).to_i
     endRange = (params[:endRange] || 2015).to_i
+    data_manager = DataProvider.instance
+    data_frames = data_manager.getDataFrames(params[:state] || "Ags,BC,BCS,Camp,Coah")
+    security_data_frames = {}
 
-    (startRange..endRange).each do |year|
-      s << "#{year}0101\t#{security_aguascalientes[year].sum || 0}\t#{security_baja_california[year].sum || 0}\t#{security_baja_california_sur[year].sum || 0}\t#{security_campeche[year].sum || 0}\t#{security_coahuila_de_zaragoza[year].sum || 0}\n"
+    data_frames.each do |state, data_frame|
+      security_data_frame = data_frame.where(data_frame["UnidadMedida"].eq('Delitos'))
+      security_data_frames[state] = security_data_frame.where(security_data_frame["Tema_nivel_2"].eq('Delitos registrados')) 
     end
 
+    s = "date"
+
+    security_data_frames.each do |state, data_frame|
+      s << "\t#{state}"
+    end
+
+    s <<"\n"
+
+    (startRange..endRange).each do |year|
+      s << "#{year}0101"
+      data_frames.keys.each do |state|
+        s << "\t#{security_data_frames[state][year].sum || 0}"
+      end
+      s << "\n"
+    end
     render plain:s
   end
 
   def security
-    
   end
 
 end
