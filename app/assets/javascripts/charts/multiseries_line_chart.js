@@ -95,6 +95,7 @@ var MultiseriesLineChart = (function(){
       .attr("x", 3)
       .attr("dy", ".35em")
       .text(function(d) { return d.name; });
+      $(".center-block").addClass("hidden")
     });
   };
 
