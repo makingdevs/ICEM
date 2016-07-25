@@ -21,6 +21,7 @@
     "bootstrap-select": "~1.10.0",
     "jquery-ujs": "~1.2.1",
     "fontawesome": "fontawesome#~4.6.3",
-    "nouislider": "~8.5.1"
+    "nouislider": "~8.5.1",
+    "handlebars": "~4.0.5"
   }
 }
