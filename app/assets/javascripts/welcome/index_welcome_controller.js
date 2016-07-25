@@ -41,10 +41,12 @@ var IndexWelcomeController = (function(){
 
   var updateGraph = function(){
     $(".center-block").removeClass("hidden")
-    MultiseriesLineChart.renderGraph(getDataForm());
+    var queryParams = getQueryParams();
+    MultiseriesLineChart.renderGraph(queryParams);
+    SecurityTableController.renderTable(queryParams);
   };
 
-  var getDataForm = function(){
+  var getQueryParams = function(){
     data = {};
     data.state = "";
     $("#indicators").find("input").each(function(index,selector){
