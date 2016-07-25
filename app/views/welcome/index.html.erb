@@ -64,7 +64,7 @@
               <br/>
               <fieldset>
                 <legend>
-                Rangos de años
+                  Rangos de años
                 </legend>
                 <div id="range"></div>
               </fieldset>
@@ -75,5 +75,48 @@
       </div>
     </section>
   </div>
-  
 </div>
+
+<div class="row">
+  <div class="col-md-12">
+    <section class="widget">
+      <header>
+        <h4>
+          Indice Delitos Totales
+        </h4>
+      </header>
+      <div class="widget-body" id="displayTableSecurity">
+      </div>
+    </section>
+  </div>
+</div>
+
+<%= hidden_field('security','url',:value => url_for(controller: 'welcome', action: 'data_sample')+'?' ) %>
+
+<script id="security-table-template" type="text/x-handlebars-template">
+  <table class="table">
+    <thead>
+      <tr>
+        {{#each this}}
+        {{#if this.isHeader}}
+        {{#each this.headers}}
+        <th>{{this}}</th>
+        {{/each}}
+        {{/if}}
+        {{/each}}
+      </tr>
+    </thead>
+    <tbody>
+      {{#each this}}
+      {{#unless this.isHeader}}
+      <tr>
+        {{#each this}}
+        <td>{{this}}</td>
+        {{/each}}
+      </tr>
+      {{/unless}}
+      {{/each}}
+    </tbody>
+  </table>
+
+</script>
