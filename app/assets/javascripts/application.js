@@ -28,7 +28,10 @@
 //= require sing-theme/assets/javascripts/app
 //= require d3/d3
 //= require nouislider/distribute/nouislider
+//= require handlebars/handlebars
 
 //= require charts/multiseries_line_chart
 
 //= require welcome/index_welcome_controller
+//= require welcome/security_table_controller
+//= require welcome/security_table_view
