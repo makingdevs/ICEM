@@ -21,6 +21,7 @@
 //= require d3/d3
 //= require nouislider/distribute/nouislider
 //= require handlebars/handlebars
+//= require jquery-loading-overlay/src/loadingoverlay
 
 //= require charts/multiseries_line_chart
 //= require welcome/index_welcome_controller
