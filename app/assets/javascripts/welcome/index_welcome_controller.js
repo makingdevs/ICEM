@@ -10,7 +10,7 @@ var IndexWelcomeController = (function(){
 
   var bindEvents = function() {
     slider.noUiSlider.on('change', updateGraph);
-    $(".checkbox").on('click', updateGraph)
+    $(":checkbox").on('click', updateGraph)
   };
 
   var initSlider = function(){
@@ -40,7 +40,7 @@ var IndexWelcomeController = (function(){
   };
 
   var updateGraph = function(){
-    $(".center-block").removeClass("hidden")
+    $("#jumbotron").LoadingOverlay("show");
     var queryParams = getQueryParams();
     MultiseriesLineChart.renderGraph(queryParams);
     SecurityTableController.renderTable(queryParams);
