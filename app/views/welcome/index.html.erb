@@ -1,4 +1,4 @@
-<h1 class="page-title">Dashboard <small><small>The Lucky One</small></small></h1>
+<h1 class="page-title">Dashboard <small><small>ICEM</small></small></h1>
 <div class="row">
   <div class="col-md-7">
     <div class="widget-body">
@@ -92,31 +92,4 @@
 </div>
 
 <%= hidden_field('security','url',:value => url_for(controller: 'welcome', action: 'data_sample')+'?' ) %>
-
-<script id="security-table-template" type="text/x-handlebars-template">
-  <table class="table">
-    <thead>
-      <tr>
-        {{#each this}}
-        {{#if this.isHeader}}
-        {{#each this.headers}}
-        <th>{{this}}</th>
-        {{/each}}
-        {{/if}}
-        {{/each}}
-      </tr>
-    </thead>
-    <tbody>
-      {{#each this}}
-      {{#unless this.isHeader}}
-      <tr>
-        {{#each this}}
-        <td>{{this}}</td>
-        {{/each}}
-      </tr>
-      {{/unless}}
-      {{/each}}
-    </tbody>
-  </table>
-
-</script>
+<%= render "welcome/security_indicator" %>
