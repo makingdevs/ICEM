@@ -1,0 +1,26 @@
+<script id="security-table-template" type="text/x-handlebars-template">
+  <table class="table">
+    <thead>
+      <tr>
+        {{#each this}}
+          {{#if this.isHeader}}
+            {{#each this.headers}}
+              <th>{{this}}</th>
+            {{/each}}
+          {{/if}}
+        {{/each}}
+      </tr>
+    </thead>
+    <tbody>
+      {{#each this}}
+        {{#unless this.isHeader}}
+          <tr>
+            {{#each this}}
+              <td>{{this}}</td>
+            {{/each}}
+          </tr>
+        {{/unless}}
+      {{/each}}
+    </tbody>
+  </table>
+</script>
