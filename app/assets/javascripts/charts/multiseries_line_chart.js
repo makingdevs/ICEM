@@ -5,10 +5,16 @@ var MultiseriesLineChart = (function(){
   };
 
   var renderGraph = function(parameters){
-    $("#graph").html("");
-    var margin = {top: 20, right: 80, bottom: 30, left: 50},
-    width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+    $("#graph svg").remove();
+    var margin = {top: 20, right: 80, bottom: 30, left: 50};
+    var sizeWindows = $(window).width();
+    var width;
+    if(sizeWindows > 991){
+      width = 900 - margin.left - margin.right
+    }else{
+      width = sizeWindows - margin.left - margin.right
+    }
+    var height = 500 - margin.top - margin.bottom;
 
     var parseDate = d3.time.format("%Y%m%d").parse;
 
@@ -95,7 +101,7 @@ var MultiseriesLineChart = (function(){
       .attr("x", 3)
       .attr("dy", ".35em")
       .text(function(d) { return d.name; });
-      $(".center-block").addClass("hidden")
+      $("#jumbotron").LoadingOverlay("hide");
     });
   };
 
