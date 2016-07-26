@@ -20,11 +20,10 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Home</a></li>
-        <li><a href="">Acerca de</a></li>
-        <li><a href="">Sobre ICEM</a></li>
+        <li><a href="">Estados</a></li>
+        <li><a href="">Indicadores</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="">Contacto</a></li>
         <li><a href="">ICEM</a></li>
       </ul>
     </div>
@@ -32,9 +31,7 @@
 </nav>
 
 <body>
-  <div class="container-fluid">
-    <%= yield %>
-  </div>
+  <%= yield %>
   <%= javascript_include_tag "application" %>
 </body>
 </html>
