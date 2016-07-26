@@ -3,23 +3,6 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @import "compass";
-
-@import "sing-theme/assets/sass/variables";
-@import "sing-theme/assets/sass/mixins";
-
 @import "bootstrap-sass/assets/stylesheets/bootstrap";
 @import "font-awesome";
-@import "animate.css/animate";
-
-@import "sing-theme/assets/sass/bootstrap-override";
-@import "sing-theme/assets/sass/libs-override";
-
-@import "sing-theme/assets/sass/general";
-@import "sing-theme/assets/sass/global-transitions";
-@import "sing-theme/assets/sass/base";
-
-@import "sing-theme/assets/sass/widgets";
-@import "sing-theme/assets/sass/utils";
-@import "sing-theme/assets/sass/print";
-
 @import "nouislider/distribute/nouislider.min";
