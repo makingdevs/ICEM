@@ -1,101 +1,78 @@
-<div class="jumbotron">
-      <div class="container">
-        <h1>Hello, world!</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more »</a></p>
-      </div>
-    </div>
-
-<h1 class="page-title">Dashboard <small><small>ICEM</small></small></h1>
-<div class="row">
-  <div class="col-md-7">
-    <div class="widget-body">
-      <%= image_tag("loader.gif", class:"center-block") %>
-      <div id="graph">
-      </div>
-    </div>
-  </div>
-
-  <div class="col-md-5">
-    <section class="widget">
-      <header>
-        <h5>
-          <strong>Panel de control</strong>
-        </h5>
-        <div class="widget-controls">
-          <a href="#" data-widgster="close"><i class="fa fa-times" aria-hidden="true"></i></i></a>
+<div class="jumbotron" id="jumbotron" style="background: -webkit-linear-gradient(top, rgba(240,249,255,1) 0%,rgba(203,235,255,0.89) 47%,rgba(163,220,255,0.77) 98%,rgba(161,219,255,0.77) 100%);">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-7">
+        <div id="graph">
         </div>
-      </header>
-
-      <div class="widget-body">
-        <form id="indicators">
-          <div class="row">
-            <div class="col-md-12">
-              <fieldset>
-                <legend>
-                  Entidades Federativas
-                </legend>
-                <p>
-                  Selecciona la entidad federativa que desea visualizar. 
-                </p>
-                <div class="checkbox">
-                  <input id="AGS" name="AGS" type="checkbox" checked="checked">
-                  <label for="AGS">
-                    Aguascalientes
-                  </label>
-                </div>
-                <div class="checkbox checkbox-primary">
-                  <input id="BC" name="BC" type="checkbox" checked="checked">
-                  <label for="BC">
-                    Baja California
-                  </label>
-                </div>
-                <div class="checkbox checkbox-success">
-                  <input id="BCS" name="BCS" type="checkbox" checked="checked">
-                  <label for="BCS">
-                    Baja California Sur
-                  </label>
-                </div>
-                <div class="checkbox checkbox-info">
-                  <input id="CAMP" name="CAMP" type="checkbox" checked="">
-                  <label for="CAMP">
-                    Campeche
-                  </label>
-                </div>
-                <div class="checkbox checkbox-warning">
-                  <input id="COAH" name="COAH" type="checkbox" checked="checked">
-                  <label for="COAH">
-                    Coahuila de Zaragoza
-                  </label>
-                </div>
-              </fieldset>
-              <br/>
-              <fieldset>
-                <legend>
-                  Rangos de años
-                </legend>
-                <div id="range"></div>
-              </fieldset>
-              <br/><br/>
+      </div>
+      <div class="col-md-5">
+        <div class="page-header">
+          <h3>Selecciona la entidad federativa que desea visualizar.</h3>
+        </div>
+        <form id="indicators" class="form-horizontal">
+          <fieldset>
+            <legend>
+              <small>Entidades Federativas</small>
+            </legend>
+            <div>
+              <input id="AGS" name="AGS" type="checkbox" checked="checked">
+              <label for="AGS">
+                Aguascalientes
+              </label>
             </div>
-          </div>
+            <div>
+              <input id="BC" name="BC" type="checkbox" checked="checked">
+              <label for="BC">
+                Baja California
+              </label>
+            </div>
+            <div>
+              <input id="BCS" name="BCS" type="checkbox" checked="checked">
+              <label for="BCS">
+                Baja California Sur
+              </label>
+            </div>
+            <div>
+              <input id="CAMP" name="CAMP" type="checkbox" checked="">
+              <label for="CAMP">
+                Campeche
+              </label>
+            </div>
+            <div>
+              <input id="COAH" name="COAH" type="checkbox" checked="checked">
+              <label for="COAH">
+                Coahuila de Zaragoza
+              </label>
+            </div>
+          </fieldset>
+          <br/>
+          <fieldset>
+            <legend>
+              <small>Rangos de años</small>
+            </legend>
+            <div class="container">
+              <div id="range"></div>
+            </div>
+          </fieldset>
+          <br/><br/>
         </form>
       </div>
-    </section>
+    </div>
   </div>
 </div>
-
-<div class="row">
-  <div class="col-md-12">
-    <section class="widget">
-      <header>
-        <h4>
-          Indice Delitos Totales
-        </h4>
-      </header>
-      <div class="widget-body" id="displayTableSecurity">
-      </div>
-    </section>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <section class="widget">
+        <header>
+          <h4>
+            Indice Delitos Totales
+          </h4>
+        </header>
+        <div class="widget-body" id="displayTableSecurity">
+        </div>
+      </section>
+    </div>
   </div>
 </div>
 
