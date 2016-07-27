@@ -13,6 +13,7 @@
     "bootstrap-sass": "~3.3.6",
     "fontawesome": "fontawesome#~4.6.3",
     "nouislider": "~8.5.1",
-    "handlebars": "~4.0.5"
+    "handlebars": "~4.0.5",
+    "jquery-loading-overlay":"https://github.com/gasparesganga/jquery-loading-overlay.git"
   }
 }
