@@ -27,3 +27,4 @@
 //= require welcome/index_welcome_controller
 //= require welcome/security_table_controller
 //= require welcome/security_table_view
+//= require welcome
