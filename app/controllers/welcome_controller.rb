@@ -37,7 +37,7 @@ class WelcomeController < ApplicationController
   end
 
   def renderDataExampe
-    render plain: open('http://icem.com.s3.amazonaws.com/aster_data.csv'){ |f| f.read }
+    render plain: open('http://icem.com.s3.amazonaws.com/data_states.csv'){ |f| f.read }
   end
 
   def example
