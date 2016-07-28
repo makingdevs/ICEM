@@ -1,5 +1,6 @@
 require 'manager/data_provider'
 require 'enums/states'
+require 'open-uri'
 
 class WelcomeController < ApplicationController
 
@@ -33,6 +34,13 @@ class WelcomeController < ApplicationController
     end
 
     render plain:s
+  end
+
+  def renderDataExampe
+    render plain: open('http://icem.com.s3.amazonaws.com/aster_data.csv'){ |f| f.read }
+  end
+
+  def example
   end
 
 end
