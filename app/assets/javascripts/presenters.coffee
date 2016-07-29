@@ -3,7 +3,6 @@ class App.Legend
   constructor: (@template, @element) ->
 
   render: (data) ->
-    debugger
     source = $(@template).html()
     resultTemplate = Handlebars.compile(source)
     html = resultTemplate(data)
@@ -39,7 +38,7 @@ class App.Visualization
       d.value
     )
 
-    d3.csv '/renderDataExampe', @wrapperCharsToNumber, (error, data) =>
+    d3.csv $("#data_url").val(), @wrapperCharsToNumber, (error, data) =>
       if error
         throw error
 
