@@ -1,80 +1,15 @@
 <div class="jumbotron" id="jumbotron" style="background: -webkit-linear-gradient(top, rgba(240,249,255,1) 0%,rgba(203,235,255,0.89) 47%,rgba(163,220,255,0.77) 98%,rgba(161,219,255,0.77) 100%);">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-7">
-        <div id="graph">
-        </div>
+      <div class="col-md-10">
+        <div id="graphs"></div>
       </div>
-      <div class="col-md-5">
-        <div class="page-header">
-          <h3>Selecciona la entidad federativa que desea visualizar.</h3>
-        </div>
-        <form id="indicators" class="form-horizontal">
-          <fieldset>
-            <legend>
-              <small>Entidades Federativas</small>
-            </legend>
-            <div>
-              <input id="AGS" name="AGS" type="checkbox" checked="checked">
-              <label for="AGS">
-                Aguascalientes
-              </label>
-            </div>
-            <div>
-              <input id="BC" name="BC" type="checkbox" checked="checked">
-              <label for="BC">
-                Baja California
-              </label>
-            </div>
-            <div>
-              <input id="BCS" name="BCS" type="checkbox" checked="checked">
-              <label for="BCS">
-                Baja California Sur
-              </label>
-            </div>
-            <div>
-              <input id="CAMP" name="CAMP" type="checkbox" checked="">
-              <label for="CAMP">
-                Campeche
-              </label>
-            </div>
-            <div>
-              <input id="COAH" name="COAH" type="checkbox" checked="checked">
-              <label for="COAH">
-                Coahuila de Zaragoza
-              </label>
-            </div>
-          </fieldset>
-          <br/>
-          <fieldset>
-            <legend>
-              <small>Rangos de años</small>
-            </legend>
-            <div class="container">
-              <div id="range"></div>
-            </div>
-          </fieldset>
-          <br/><br/>
-        </form>
+      <div class="col-md-2">
+        <div id="legend"></div>
       </div>
-    </div>
-  </div>
-</div>
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <section class="widget">
-        <header>
-          <h4>
-            Indice Delitos Totales
-          </h4>
-        </header>
-        <div class="widget-body" id="displayTableSecurity">
-        </div>
-      </section>
     </div>
   </div>
 </div>
 
-<%= hidden_field('security','url',:value => url_for(controller: 'welcome', action: 'data_sample')+'?' ) %>
-<%= render "welcome/security_indicator" %>
+<%= hidden_field('data','url',:value => url_for(controller: 'welcome', action: 'data_sample' )) %>
+<%= render "welcome/legend_indicator.html" %>
