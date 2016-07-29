@@ -23,8 +23,4 @@
 //= require handlebars/handlebars
 //= require jquery-loading-overlay/src/loadingoverlay
 
-//= require charts/multiseries_line_chart
-//= require welcome/index_welcome_controller
-//= require welcome/security_table_controller
-//= require welcome/security_table_view
 //= require welcome
