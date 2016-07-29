@@ -2,7 +2,7 @@
 #= require models
 #= require presenters
 
-width = 250
+width = 150
 height = 150
 element = '#graphs'
 
