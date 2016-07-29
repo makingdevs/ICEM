@@ -1,20 +1,12 @@
-#graph {
+.arc text {
   font: 10px sans-serif;
+  text-anchor: middle;
 }
 
-.axis path,
-.axis line {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
+.arc path {
+  stroke: #fff;
 }
-
-.x.axis path {
-  display: none;
-}
-
-.line {
-  fill: none;
-  stroke: steelblue;
-  stroke-width: 1.5px;
+body {
+  padding-top: 25px;
+  padding-bottom: 20px;
 }
