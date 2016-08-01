@@ -19,8 +19,8 @@
 //= require bootstrap-sass/assets/javascripts/bootstrap/tooltip
 //= require bootstrap-sass/assets/javascripts/bootstrap/alert
 //= require d3/d3
-//= require nouislider/distribute/nouislider
 //= require handlebars/handlebars
 //= require jquery-loading-overlay/src/loadingoverlay
+//= require seiyria-bootstrap-slider/dist/bootstrap-slider
 
 //= require welcome
