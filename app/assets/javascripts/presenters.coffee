@@ -49,6 +49,9 @@ class App.Visualization
         g = svg.selectAll('.arc').data(pie(state.indicators)).enter().append('g').attr('class', 'arc')
         g.append('path').attr('d', arc).style 'fill', (slice) ->
           color slice.data.name
+
+        svg.append("text").attr("x", 0).attr("y", 75)
+        .style("text-anchor", "middle").text(state.name)
         return
       @renderTable(color)
       return
