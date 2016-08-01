@@ -7,6 +7,10 @@ class App.Legend
     resultTemplate = Handlebars.compile(source)
     html = resultTemplate(data)
     $(@element).html html
+    this.initThirdParty()
+
+  initThirdParty: ->
+    $('input[type="range"]').slider();
 
 class App.Visualization
   
