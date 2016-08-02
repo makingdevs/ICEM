@@ -2,9 +2,16 @@
 #= require models
 #= require presenters
 
-width = 150
-height = 155
-element = '#graphs'
+class App.AppHome
 
-v = new App.Visualization(width, height, element)
-v.getData()
+  bindEvents: ->
+
+  start: ->
+    width = 150
+    height = 155
+    element = '#graphs'
+    v = new App.Visualization(width, height, element)
+    v.getData()
+
+app = new App.AppHome()
+app.start()
