@@ -1,7 +1,7 @@
 class App.State
 
   constructor: (options) ->
-    { @name } = options
+    { @name, @svg } = options
     @indicators = []
     for prop of options
       if prop != 'name'
