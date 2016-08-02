@@ -50,8 +50,8 @@ class App.Visualization
         @color d.data.name
       ).attr('d', @arc)
       svg.append("text").attr("x", 0).attr("y", 75)
-      state.svg = svg
       .style("text-anchor", "middle").text(state.name)
+      state.svg = svg
       return
     @renderLegend()
 
