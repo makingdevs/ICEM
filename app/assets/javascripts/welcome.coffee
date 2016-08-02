@@ -7,4 +7,4 @@ height = 155
 element = '#graphs'
 
 v = new App.Visualization(width, height, element)
-v.draw()
+v.getData()
