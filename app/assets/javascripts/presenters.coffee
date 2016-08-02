@@ -21,6 +21,7 @@ class App.Visualization
     @pie = d3.layout.pie().sort(null).value((d) ->
       d.value
     )
+    @stateList = []
 
   wrapperCharsToNumber: (row) ->
     for prop of row
@@ -39,12 +40,12 @@ class App.Visualization
     d3.csv $("#data_url").val(), @wrapperCharsToNumber, (error, data) =>
       if error 
         throw error
-      stateList = (@transformRowToState(state) for state in data)
-      @draw(stateList)
+      @stateList = (@transformRowToState(state) for state in data)
+      @draw()
       return
 
-  draw: (stateList) -> 
-    stateList.forEach (state) =>
+  draw: -> 
+    @stateList.forEach (state) =>
       svg = d3.select(@element).append('svg').attr('width', @width).attr('height', @height).append('g').attr('transform', 'translate(' + @width / 2 + ',' + @height / 2 + ')')
       path = svg.datum(state.indicators).selectAll('path').data(@pie).enter().append('path').attr('fill', (d) =>
         @color d.data.name
@@ -54,8 +55,13 @@ class App.Visualization
       state.svg = svg
       return
     @renderLegend()
+    @bindEvents()
 
-  updateDraw: (stateList) ->
-    stateList.forEach (state) =>
-      svg.datum(state.indicators).selectAll('path').data(@pie).attr('d', @arc)
+  updateDraw: =>
+    @stateList.forEach (state) =>
+      indicators = ( new App.Indicator(indicator.name, Math.random())  for indicator in state.indicators)
+      state.svg.datum(indicators).selectAll('path').data(@pie).attr('d', @arc)
       return
+
+  bindEvents: ->
+    $('input[type="range"]').on('change', @updateDraw)
