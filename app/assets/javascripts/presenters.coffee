@@ -49,7 +49,8 @@ class App.Visualization
       svg = d3.select(@element).append('svg').attr('width', @width).attr('height', @height).append('g').attr('transform', 'translate(' + @width / 2 + ',' + @height / 2 + ')')
       path = svg.datum(state.indicators).selectAll('path').data(@pie).enter().append('path').attr('fill', (d) =>
         @color d.data.name
-      ).attr('d', @arc)
+      ).attr('d', @arc).each (d) => 
+        @current = d 
       svg.append("text").attr("x", 0).attr("y", 75)
       .style("text-anchor", "middle").text(state.name)
       state.svg = svg
@@ -60,8 +61,17 @@ class App.Visualization
   updateDraw: =>
     @stateList.forEach (state) =>
       indicators = ( new App.Indicator(indicator.name, Math.random())  for indicator in state.indicators)
-      state.svg.datum(indicators).selectAll('path').data(@pie).attr('d', @arc)
+      state.svg.datum(indicators).selectAll('path')
+      .data(@pie)
+      .transition().duration(750).attrTween("d", @arcTween)
+      #.attr('d', @arc)
       return
+
+  arcTween: (a) =>
+    i = d3.interpolate(@current, a)
+    @current = i(0)
+    (t) =>
+      @arc i(t)
 
   bindEvents: ->
     $('input[type="range"]').on('change', @updateDraw)
