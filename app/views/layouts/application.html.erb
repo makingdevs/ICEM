@@ -23,11 +23,25 @@
         <li class="hidden">
           <a href="#"></a>
         </li>
-        <li class="page-scroll">
-          <a href="">Indicadores</a>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle navbar-custom" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Indicadores <span class="caret"></span> </a>
+          <ul class="dropdown-menu navbar-custom">
+            <% @indicators.each do |indicator| -%>
+              <li>
+                <a href="#"><%= indicator %></a>
+              </li>
+            <% end -%>
+          </ul>
         </li>
-        <li class="page-scroll">
-          <a href="">Estados</a>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle navbar-custom" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Estados <span class="caret"></span> </a>
+          <ul class="dropdown-menu navbar-custom">
+            <% @states.each do |state| -%>
+              <li>
+                <a href="#"><%= state %></a>
+              </li>
+            <% end -%>
+          </ul>
         </li>
         <li class="page-scroll">
           <a href="">¿Quiénes somos?</a>
