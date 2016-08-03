@@ -12,15 +12,12 @@
 //
 //= require jquery/dist/jquery
 //= require turbolinks
-//= require bootstrap-sass/assets/javascripts/bootstrap/transition
-//= require bootstrap-sass/assets/javascripts/bootstrap/collapse
-//= require bootstrap-sass/assets/javascripts/bootstrap/dropdown
-//= require bootstrap-sass/assets/javascripts/bootstrap/button
-//= require bootstrap-sass/assets/javascripts/bootstrap/tooltip
-//= require bootstrap-sass/assets/javascripts/bootstrap/alert
+//= require bootstrap-sass/assets/javascripts/bootstrap
 //= require d3/d3
 //= require handlebars/handlebars
 //= require jquery-loading-overlay/src/loadingoverlay
 //= require seiyria-bootstrap-slider/dist/bootstrap-slider
+//= require freelancer
 
 //= require welcome
+
