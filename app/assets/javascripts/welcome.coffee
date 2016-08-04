@@ -8,8 +8,8 @@ class App.AppHome
   bindEvents: ->
 
   start: ->
-    width = 150
-    height = 155
+    width = 120
+    height = 135
     element = '#graphs'
     v = new App.Visualization(width, height, element)
     v.getData()
