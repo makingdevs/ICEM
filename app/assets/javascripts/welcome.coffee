@@ -1,6 +1,7 @@
 #= require app
 #= require models
 #= require presenters
+#= require seiyria-bootstrap-slider/dist/bootstrap-slider
 
 class App.AppHome
 
