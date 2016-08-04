@@ -51,7 +51,7 @@ class App.Visualization
         @color d.data.name
       ).attr('d', @arc).each (d) => 
         @current = d 
-      svg.append("text").attr("x", 0).attr("y", 75)
+      svg.append("text").attr("x", 0).attr("y", 62)
       .style("text-anchor", "middle").text(state.name)
       state.svg = svg
       return
