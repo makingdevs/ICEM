@@ -22,6 +22,8 @@ class App.Visualization
       d.value
     )
     @stateList = []
+    @filterStateList = []
+    @indicatorsSelected = []
 
   wrapperCharsToNumber: (row) ->
     for prop of row
@@ -59,12 +61,11 @@ class App.Visualization
     @bindEvents()
 
   updateDraw: =>
-    @stateList.forEach (state) =>
-      indicators = ( new App.Indicator(indicator.name, Math.random())  for indicator in state.indicators)
+    @filterStateList.forEach (state) =>
+      indicators = ( new App.Indicator(indicator.name, indicator.value)  for indicator in state.indicators)
       state.svg.datum(indicators).selectAll('path')
       .data(@pie)
       .transition().duration(750).attrTween("d", @arcTween)
-      #.attr('d', @arc)
       return
 
   arcTween: (a) =>
@@ -74,4 +75,33 @@ class App.Visualization
       @arc i(t)
 
   bindEvents: ->
-    $('input[type="range"]').on('change', @updateDraw)
+    $('input[type="checkbox"]').on('change', @filterStates)
+
+  lookUpChanges: =>
+    @indicatorsSelected = []
+    $('input[type="checkbox"]').each (index, element) =>
+      if $(element).is(':checked')
+        @indicatorsSelected += $(element).attr('name') + ','
+      return
+    @indicatorsSelected = @indicatorsSelected.split ","
+
+  filterStates: =>
+    @lookUpChanges()
+    debugger
+    @indicatorsSelected.pop()
+    @stateList.forEach (state) =>
+      newListIndicator = []
+      state.indicators.forEach (indicator) =>  
+        @indicatorsSelected.forEach (indicatorSelected) =>
+          if indicator.name != indicatorSelected
+            indicator.value = 0
+          newListIndicator.push indicator
+          return
+        return
+      state.indicators = []
+      state.indicators = newListIndicator
+      @filterStateList.push state
+      return
+    @updateDraw()
+    
+    
