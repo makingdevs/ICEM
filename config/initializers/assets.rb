@@ -8,7 +8,7 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.paths << Rails.root.join("vendor","assets","third-party")
 
 %w( welcome states about).each do |controller|
-  Rails.application.config.assets.precompile += ["#{controller}.js"]
+  Rails.application.config.assets.precompile += ["#{controller}.js", "#{controller}.css"]
 end
 
 # Precompile additional assets.
