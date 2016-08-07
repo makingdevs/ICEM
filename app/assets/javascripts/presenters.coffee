@@ -13,15 +13,14 @@ class App.Legend
     @initThirdParty()
 
 class App.Visualization
-  
   constructor: (@width, @height, @element) ->
     @radius = Math.min(@width, @height) / 2
     @color = d3.scale.category20()
-    @arc = d3.svg.arc().outerRadius(@radius - 10).innerRadius(@radius - 40)
     @pie = d3.layout.pie().sort(null).value((d) ->
       d.value
     )
     @stateList = []
+    @num = 0
 
   wrapperCharsToNumber: (row) ->
     for prop of row
@@ -46,6 +45,12 @@ class App.Visualization
 
   draw: -> 
     @stateList.forEach (state) =>
+      avg = 0.0
+      avg += indicador.value for indicador in state.indicators
+      avg = (avg / (state.indicators.length*1))
+      avg = Math.round(avg * 10) / 10 
+      @factor = 50 - (avg*40)
+      @arc = d3.svg.arc().outerRadius(@radius - @factor).innerRadius(@radius - 50)
       svg = d3.select(@element).append('svg').attr('width', @width).attr('height', @height).append('g').attr('transform', 'translate(' + @width / 2 + ',' + @height / 2 + ')')
       path = svg.datum(state.indicators).selectAll('path').data(@pie).enter().append('path').attr('fill', (d) =>
         @color d.data.name
@@ -60,11 +65,17 @@ class App.Visualization
 
   updateDraw: =>
     @stateList.forEach (state) =>
+      avg = 0.0
+      avg += indicador.value for indicador in state.indicators
+      avg = (avg / (state.indicators.length*1))
+      avg = Math.round(avg * 10) / 10 
+      @factor = 50 - (avg*40)
+      @arc = d3.svg.arc().outerRadius(@radius - @factor).innerRadius(@radius - 50)
       indicators = ( new App.Indicator(indicator.name, Math.random())  for indicator in state.indicators)
       state.svg.datum(indicators).selectAll('path')
       .data(@pie)
-      .transition().duration(750).attrTween("d", @arcTween)
-      #.attr('d', @arc)
+      #.transition().duration(750).attrTween("d", @arcTween)
+      .attr('d', @arc)
       return
 
   arcTween: (a) =>
