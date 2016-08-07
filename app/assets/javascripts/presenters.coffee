@@ -16,7 +16,7 @@ class App.Visualization
   
   constructor: (@width, @height, @element) ->
     @radius = Math.min(@width, @height) / 2
-    @color = d3.scale.category20()
+    @color = d3.scale.category20c()
     @arc = d3.svg.arc().outerRadius(@radius - 10).innerRadius(@radius - 40)
     @pie = d3.layout.pie().sort(null).value((d) ->
       d.value
@@ -83,19 +83,24 @@ class App.Visualization
       if $(element).is(':checked')
         @indicatorsSelected += $(element).attr('name') + ','
       return
-    @indicatorsSelected = @indicatorsSelected.split ","
+    if @indicatorsSelected.length > 0
+      @indicatorsSelected = @indicatorsSelected.split ","
+    else
+      @indicatorsSelected = ["Vivienda", "Ingresos", "Empleos", "Comunidad", "Educación", "Entorno", "Compromiso civil", "Salud", "Satisfacción de vida", "Seguridad", "Equilibrio trabajo-vida", ""]
 
   filterStates: =>
     @lookUpChanges()
-    debugger
     @indicatorsSelected.pop()
-    @stateList.forEach (state) =>
+    newList = ($.extend({}, state) for state in @stateList)
+    newList.forEach (state) =>
       newListIndicator = []
       state.indicators.forEach (indicator) =>  
         @indicatorsSelected.forEach (indicatorSelected) =>
           if indicator.name != indicatorSelected
-            indicator.value = 0
-          newListIndicator.push indicator
+            indicador = new App.Indicator(indicator.name, 0)
+            newListIndicator.push indicador
+          else
+            newListIndicator.push indicator
           return
         return
       state.indicators = []
