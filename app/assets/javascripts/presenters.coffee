@@ -47,9 +47,14 @@ class App.Visualization
 
   draw: -> 
     @stateList.forEach (state) =>
+      counter = 0
       avg = 0.0
       avg += indicador.value for indicador in state.indicators
-      avg = (avg / (2))
+      state.indicators.forEach (indicator) ->
+        if indicator.value > 0 
+          counter += 1
+        return
+      avg = (avg / (counter))
       avg = Math.round(avg * 10) / 10 
       @factor = 50 - (avg*40)
       @arc = d3.svg.arc().outerRadius(@radius - @factor).innerRadius(@radius - 50)
@@ -67,14 +72,18 @@ class App.Visualization
 
   updateDraw: =>
     @filterStateList.forEach (state) =>
+      counter = 0
       avg = 0.0
       avg += indicador.value for indicador in state.indicators
-      console.log(avg)
-      avg = (avg / (state.indicators.length*1))
+      state.indicators.forEach (indicator) ->
+        if indicator.value > 0 
+          counter += 1
+        return
+      avg = (avg / (counter))
       avg = Math.round(avg * 10) / 10 
       @factor = 50 - (avg*40)
       @arc = d3.svg.arc().outerRadius(@radius - @factor).innerRadius(@radius - 50)
-      indicators = ( new App.Indicator(indicator.name, Math.random())  for indicator in state.indicators)
+      indicators = ( new App.Indicator(indicator.name, indicator.value)  for indicator in state.indicators)
       state.svg.datum(indicators).selectAll('path')
       .data(@pie)
       #.transition().duration(750).attrTween("d", @arcTween)
