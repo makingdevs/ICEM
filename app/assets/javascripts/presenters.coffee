@@ -82,6 +82,7 @@ class App.Visualization
       avg = (avg / (counter))
       avg = Math.round(avg * 10) / 10 
       @factor = 50 - (avg*40)
+
       @arc = d3.svg.arc().outerRadius(@radius - @factor).innerRadius(@radius - 50)
       indicators = ( new App.Indicator(indicator.name, indicator.value)  for indicator in state.indicators)
       state.svg.datum(indicators).selectAll('path')
@@ -117,13 +118,12 @@ class App.Visualization
     newList.forEach (state) =>
       newListIndicator = []
       state.indicators.forEach (indicator) =>  
-        @indicatorsSelected.forEach (indicatorSelected) =>
-          if indicator.name != indicatorSelected
-            indicador = new App.Indicator(indicator.name, 0)
-            newListIndicator.push indicador
-          else
-            newListIndicator.push indicator
-          return
+        newIndicator = {}
+        if indicator.name in @indicatorsSelected
+          newListIndicator.push indicator
+        else
+          newIndicator = new App.Indicator(indicator.name, 0)
+          newListIndicator.push newIndicator
         return
       state.indicators = []
       state.indicators = newListIndicator
@@ -131,4 +131,8 @@ class App.Visualization
       return
     @updateDraw()
     
+  Array::unique = ->
+    output = {}
+    output[@[key]] = @[key] for key in [0...@length]
+    value for key, value of output
     
