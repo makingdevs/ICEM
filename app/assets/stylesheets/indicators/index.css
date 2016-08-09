@@ -1,0 +1,5 @@
+#chart{font-family: Arial, sans-serif;font-size:10px;}
+/*.tick line{fill:none;stroke:none;}*/
+g.journal.active{cursor:pointer;}
+text.label{font-size:12px;font-weight:bold;cursor:pointer;}
+text.value{font-size:12px;font-weight:bold;}
