@@ -28,7 +28,7 @@
           <ul class="dropdown-menu navbar-custom">
             <% @indicators.each do |indicator| -%>
             <li>
-              <a href="#"><%= indicator %></a>
+              <%= link_to indicator, {controller: "indicators", action: "indicators", name: indicator} %>
             </li>
             <% end -%>
           </ul>
