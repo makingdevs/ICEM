@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
   get '/data', to: 'welcome#data_sample'
   get '/states', to: 'states#states'
   get '/about', to: 'about#index'
