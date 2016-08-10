@@ -33,7 +33,15 @@ describe 'App: Visualization', ->
     expect(v.filterStateList[0].indicators.length).toEqual(2)
     expect(v.filterStateList[0].indicators[0].value).toEqual(0.2)
     expect(v.filterStateList[0].indicators[1].value).toEqual(0.0)
+
+  it "Calculate factor to radio of svg", ->
+    #create App.Visualization
+    v = new App.Visualization()
+    #Init State
+    state = new App.State({name:"CDMX",Ingresos:0.5,Vivienda:0.2})
+    #call the filterIndicators method
+    factor = v.calculateFactor(state)
+    #then App.Visualization sould
+    expect(v).not.toBe(null)
+    expect(factor).toEqual(34)
     
-
-
-  
