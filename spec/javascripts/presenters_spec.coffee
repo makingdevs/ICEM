@@ -13,5 +13,27 @@ describe 'App: Visualization', ->
     expect(v).not.toBe(null)
     expect(row.housing).toEqual(0.1)
 
+  it "Filter indicators in list of states", ->
+    #create App.Visualization
+    v = new App.Visualization()
+    #Mock method lookUpChanges and variables
+    spyOn(v, "lookUpChanges")
+    spyOn(v, "updateDraw")
+    v.indicatorsSelected = ["Vivienda"]
+    v.stateList = 
+      [
+        new App.State({name:"CDMX",Vivienda:0.2,Ingresos:0.5}),
+        new App.State({name:"Colima",Vivienda:.5,Ingresos:0.1})
+      ]
+    #call the filterIndicators method
+    v.filterIndicators()
+    #then App.Visualization sould
+    expect(v).not.toBe(null)
+    expect(v.filterStateList.length).toEqual(2)
+    expect(v.filterStateList[0].indicators.length).toEqual(2)
+    expect(v.filterStateList[0].indicators[0].value).toEqual(0.2)
+    expect(v.filterStateList[0].indicators[1].value).toEqual(0.0)
+    
+
 
   
