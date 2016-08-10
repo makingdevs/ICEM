@@ -48,17 +48,11 @@ class App.Visualization
   calculateFactor: (state) =>
     counter = 0
     avg = 0.0
-    avg += indicador.value for indicador in state.indicators
-    console.log(avg)
-    state.indicators.forEach (indicator) ->
-      if indicator.value > 0 
-        counter += 1
-      return
-    avg = (avg / (counter))
+    avg += indicator.value for indicator in state.indicators
+    (counter += 1 if indicator.value > 0) for indicator in state.indicators
+    avg = ((Math.round(avg * 10) / 10 ) / (counter))
     avg = Math.round(avg * 10) / 10 
-    factor = 50 - (avg*40)
-
-    factor
+    50 - (avg*40)
 
   draw: -> 
     @stateList.forEach (state) =>
