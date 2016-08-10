@@ -45,19 +45,25 @@ class App.Visualization
       @draw()
       return
 
+  calculateFactor: (state) =>
+    counter = 0
+    avg = 0.0
+    avg += indicador.value for indicador in state.indicators
+    console.log(avg)
+    state.indicators.forEach (indicator) ->
+      if indicator.value > 0 
+        counter += 1
+      return
+    avg = (avg / (counter))
+    avg = Math.round(avg * 10) / 10 
+    factor = 50 - (avg*40)
+
+    factor
+
   draw: -> 
     @stateList.forEach (state) =>
-      counter = 0
-      avg = 0.0
-      avg += indicador.value for indicador in state.indicators
-      state.indicators.forEach (indicator) ->
-        if indicator.value > 0 
-          counter += 1
-        return
-      avg = (avg / (counter))
-      avg = Math.round(avg * 10) / 10 
-      @factor = 50 - (avg*40)
-      @arc = d3.svg.arc().outerRadius(@radius - @factor).innerRadius(@radius - 50)
+      factor = @calculateFactor(state)
+      @arc = d3.svg.arc().outerRadius(@radius - factor).innerRadius(@radius - 50)
       svg = d3.select(@element).append('svg').attr('width', @width).attr('height', @height).append('g').attr('transform', 'translate(' + @width / 2 + ',' + @height / 2 + ')')
       path = svg.datum(state.indicators).selectAll('path').data(@pie).enter().append('path').attr('fill', (d) =>
         @color d.data.name
@@ -72,18 +78,8 @@ class App.Visualization
 
   updateDraw: =>
     @filterStateList.forEach (state) =>
-      counter = 0
-      avg = 0.0
-      avg += indicador.value for indicador in state.indicators
-      state.indicators.forEach (indicator) ->
-        if indicator.value > 0 
-          counter += 1
-        return
-      avg = (avg / (counter))
-      avg = Math.round(avg * 10) / 10 
-      @factor = 50 - (avg*40)
-
-      @arc = d3.svg.arc().outerRadius(@radius - @factor).innerRadius(@radius - 50)
+      factor = @calculateFactor(state)
+      @arc = d3.svg.arc().outerRadius(@radius - factor).innerRadius(@radius - 50)
       indicators = ( new App.Indicator(indicator.name, indicator.value)  for indicator in state.indicators)
       state.svg.datum(indicators).selectAll('path')
       .data(@pie)
