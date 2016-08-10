@@ -12,4 +12,9 @@ describe 'Application: States', ->
     expect(state.indicators).not.toBe(null)
     expect(state.indicators.length).toEqual(1)
 
+describe 'Application: Indicator', ->
+  it 'create a new indicator with name and value', ->
+    indicator =  new App.Indicator("Vivienda", 0.4)
+    expect(indicator.name).toEqual("Vivienda")
+    expect(indicator.value).toEqual(0.4)
 
