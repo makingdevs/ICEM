@@ -98,7 +98,7 @@ class App.Visualization
       @arc i(t)
 
   bindEvents: ->
-    $('input[type="checkbox"]').on('change', @filterStates)
+    $('input[type="checkbox"]').on('change', @filterIndicators)
 
   lookUpChanges: =>
     @indicatorsSelected = []
@@ -110,10 +110,10 @@ class App.Visualization
       @indicatorsSelected = @indicatorsSelected.split ","
     else
       @indicatorsSelected = ["Vivienda", "Ingresos", "Empleos", "Comunidad", "Educación", "Entorno", "Compromiso civil", "Salud", "Satisfacción de vida", "Seguridad", "Equilibrio trabajo-vida", ""]
-
-  filterStates: =>
-    @lookUpChanges()
     @indicatorsSelected.pop()
+
+  filterIndicators: =>
+    @lookUpChanges()
     newList = ($.extend({}, state) for state in @stateList)
     newList.forEach (state) =>
       newListIndicator = []
