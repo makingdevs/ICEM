@@ -22,10 +22,8 @@ class App.Visualization
     @num = 0
     @indicatorsSelected = []
     @statesSelected = []
-
     @stateList = []
     @filterStateList = []
-
     @filterStateAndIndicatorsList = []
 
   wrapperCharsToNumber: (row) ->
@@ -60,7 +58,7 @@ class App.Visualization
     50 - (avg*40)
 
   draw: -> 
-    @filterStateAndIndicatorsList.forEach (state) =>
+    @filterStateAndIndicatorsList.forEach (state, index) =>
       factor = @calculateFactor(state)
       @arc = d3.svg.arc().outerRadius(@radius - factor).innerRadius(@radius - 50)
       svg = d3.select(@element).append('svg').attr('width', @width).attr('height', @height).append('g').attr('transform', 'translate(' + @width / 2 + ',' + @height / 2 + ')')
@@ -70,13 +68,13 @@ class App.Visualization
         @current = d 
       svg.append("text").attr("x", 0).attr("y", 62)
       .style("text-anchor", "middle").text(state.name)
-      state.svg = svg
+      @filterStateList[index].svg = svg
       return
     @renderLegend()
     @bindEvents()
 
   updateDraw: =>
-    @filterStateList.forEach (state) =>
+    @filterStateAndIndicatorsList.forEach (state) =>
       factor = @calculateFactor(state)
       @arc = d3.svg.arc().outerRadius(@radius - factor).innerRadius(@radius - 50)
       indicators = ( new App.Indicator(indicator.name, indicator.value)  for indicator in state.indicators)
@@ -109,7 +107,8 @@ class App.Visualization
 
   filterIndicators: =>
     @lookUpChanges()
-    newList = ($.extend({}, state) for state in @stateList)
+    @filterStateAndIndicatorsList = []
+    newList = ($.extend({}, state) for state in @filterStateList)
     newList.forEach (state) =>
       newListIndicator = []
       state.indicators.forEach (indicator) =>  
@@ -122,7 +121,7 @@ class App.Visualization
         return
       state.indicators = []
       state.indicators = newListIndicator
-      @filterStateList.push state
+      @filterStateAndIndicatorsList.push state
       return
     @updateDraw()
 
