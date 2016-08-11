@@ -50,9 +50,9 @@ describe 'App: Visualization', ->
     #then App.Visualization sould
     expect(v).not.toBe(null)
     expect(v.filterStateAndIndicatorsList.length).toEqual(1)
-    expect(v.filterStateList[0].indicators.length).toEqual(2)
-    expect(v.filterStateList[0].indicators[0].value).toEqual(0.5)
-    expect(v.filterStateList[0].indicators[1].value).toEqual(0.0)
+    expect(v.filterStateAndIndicatorsList[0].indicators.length).toEqual(2)
+    expect(v.filterStateAndIndicatorsList[0].indicators[0].value).toEqual(0.5)
+    expect(v.filterStateAndIndicatorsList[0].indicators[1].value).toEqual(0.0)
 
   it "Calculate factor to radio of svg", ->
     #create App.Visualization
