@@ -20,7 +20,7 @@ describe 'App: Visualization', ->
     spyOn(v, "lookUpChanges")
     spyOn(v, "updateDraw")
     v.indicatorsSelected = ["Vivienda"]
-    v.stateList = 
+    v.filterStateList = 
       [
         new App.State({name:"CDMX",Vivienda:0.2,Ingresos:0.5}),
         new App.State({name:"Colima",Vivienda:.5,Ingresos:0.1})
@@ -29,10 +29,10 @@ describe 'App: Visualization', ->
     v.filterIndicators()
     #then App.Visualization sould
     expect(v).not.toBe(null)
-    expect(v.filterStateList.length).toEqual(2)
-    expect(v.filterStateList[0].indicators.length).toEqual(2)
-    expect(v.filterStateList[0].indicators[0].value).toEqual(0.2)
-    expect(v.filterStateList[0].indicators[1].value).toEqual(0.0)
+    expect(v.filterStateAndIndicatorsList.length).toEqual(2)
+    expect(v.filterStateAndIndicatorsList[0].indicators.length).toEqual(2)
+    expect(v.filterStateAndIndicatorsList[0].indicators[0].value).toEqual(0.2)
+    expect(v.filterStateAndIndicatorsList[0].indicators[1].value).toEqual(0.0)
 
   it "Filter indicators and states in list of states", ->
     #create App.Visualization
