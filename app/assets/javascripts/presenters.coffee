@@ -19,12 +19,14 @@ class App.Visualization
     @pie = d3.layout.pie().sort(null).value((d) ->
       d.value
     )
-    @stateList = []
-    @filterStateList = []
+    @num = 0
     @indicatorsSelected = []
     @statesSelected = []
+
+    @stateList = []
+    @filterStateList = []
+
     @filterStateAndIndicatorsList = []
-    @num = 0
 
   wrapperCharsToNumber: (row) ->
     for prop of row
@@ -124,5 +126,17 @@ class App.Visualization
       return
     @updateDraw()
 
-  filterStateAndIndicators: ->
-    
+  filterStateAndIndicators: =>
+    @stateList.forEach (state) =>
+      @filterStateList.push state if state.name in @statesSelected
+    @filterStateAndIndicatorsList = ($.extend({}, state) for state in @filterStateList)
+    @filterStateAndIndicatorsList.forEach (state) =>
+      newListIndicator = []
+      state.indicators.forEach (indicator) =>
+        newListIndicator.push if (indicator.name in @indicatorsSelected) then indicator else new App.Indicator(indicator.name, 0)
+      state.indicators = []
+      state.indicators = newListIndicator
+
+
+
+
