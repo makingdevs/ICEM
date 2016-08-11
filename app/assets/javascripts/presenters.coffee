@@ -46,7 +46,7 @@ class App.Visualization
       if error 
         throw error
       @stateList = (@transformRowToState(state) for state in data)
-      #filtrar states y indicadores
+      @filterStateAndIndicators()
       @draw()
       return
 
@@ -60,7 +60,7 @@ class App.Visualization
     50 - (avg*40)
 
   draw: -> 
-    @stateList.forEach (state) =>
+    @filterStateAndIndicatorsList.forEach (state) =>
       factor = @calculateFactor(state)
       @arc = d3.svg.arc().outerRadius(@radius - factor).innerRadius(@radius - 50)
       svg = d3.select(@element).append('svg').attr('width', @width).attr('height', @height).append('g').attr('transform', 'translate(' + @width / 2 + ',' + @height / 2 + ')')
