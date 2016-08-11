@@ -33,6 +33,7 @@ class App.Visualization
 
   renderLegend: ->
     lista = ({color:@color(indicator),name:indicator} for indicator in @color.domain())
+    (if row.name in @indicatorsSelected then row.checked = "checked" else row.checked = "" )  for row in lista
     legend = new App.Legend("#legend-table-template","#legend")
     legend.render(lista)
 
