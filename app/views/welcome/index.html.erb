@@ -7,6 +7,23 @@
       <div class="col-md-4 col-sm-5">
         <div id="legend"></div>
       </div>
+      <div id="menu" class="col-md-12 col-sm-12">
+        <h3>Estados</h3>
+        <div id="states">
+          <% @states.each do |state| -%>
+            <%= label_tag(state, state) %>
+            <%= check_box_tag(state, '', false, class: 'state') %>
+          <% end -%>
+        </div>
+        <h3>Indicadores</h3>
+        <div id="states">
+          <% @indicators.each do |indicator| -%>
+            <%= label_tag(indicator, indicator) %>
+            <%= check_box_tag(indicator, '', false, class: 'indicator') %>
+          <% end -%>
+        </div>
+        <a id="submitGraph" class="btn btn-primary">Vizualizar</a>
+      </div>
     </div>
   </div>
 </header>
