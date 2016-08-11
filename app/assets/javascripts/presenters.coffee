@@ -22,6 +22,8 @@ class App.Visualization
     @stateList = []
     @filterStateList = []
     @indicatorsSelected = []
+    @statesSelected = []
+    @filterStateAndIndicatorsList = []
     @num = 0
 
   wrapperCharsToNumber: (row) ->
@@ -42,6 +44,7 @@ class App.Visualization
       if error 
         throw error
       @stateList = (@transformRowToState(state) for state in data)
+      #filtrar states y indicadores
       @draw()
       return
 
@@ -120,9 +123,6 @@ class App.Visualization
       @filterStateList.push state
       return
     @updateDraw()
-    
-  Array::unique = ->
-    output = {}
-    output[@[key]] = @[key] for key in [0...@length]
-    value for key, value of output
+
+  filterStateAndIndicators: ->
     
