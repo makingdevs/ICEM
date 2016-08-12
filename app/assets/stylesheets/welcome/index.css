@@ -6,3 +6,7 @@
 .arc path {
   stroke: #fff;
 }
+
+.parallax-container {
+  height: 700px;
+}
