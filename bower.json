@@ -10,10 +10,10 @@
   "dependencies": {
     "d3": "~3.5.17",
     "jquery": "~2.1.4",
-    "bootstrap-sass": "~3.3.6",
     "fontawesome": "fontawesome#~4.6.3",
     "handlebars": "~4.0.5",
     "jquery-loading-overlay": "https://github.com/gasparesganga/jquery-loading-overlay.git",
-    "seiyria-bootstrap-slider": "~9.1.1"
+    "seiyria-bootstrap-slider": "~9.1.1",
+    "materialize": "~0.97.7"
   }
 }
