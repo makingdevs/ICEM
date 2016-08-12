@@ -4,68 +4,53 @@
   <title>ICEM</title>
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag 'application', params[:controller], media: 'all'%>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet">
 </head>
+<body>
 
-<!-- Navigation -->
-<nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
-  <div class="container">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header page-scroll">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
-      </button>
-      <%= link_to ICEM, {controller: "welcome", action: "index"}, class:"navbar-brand" %>
-    </div>
+  <ul id="indicators" class="dropdown-content">
+    <% @indicators.each do |indicator| -%>
+      <li>
+        <%= link_to indicator, {controller: "indicators", action: "indicators", name: indicator} %>
+      </li>
+    <% end -%>
+  </ul>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <li class="hidden">
-          <a href="#"></a>
-        </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle navbar-custom" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Indicadores <span class="caret"></span> </a>
-          <ul class="dropdown-menu navbar-custom">
-            <% @indicators.each do |indicator| -%>
-            <li>
-              <%= link_to indicator, {controller: "indicators", action: "indicators", name: indicator} %>
-            </li>
-            <% end -%>
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle navbar-custom" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Estados <span class="caret"></span> </a>
-          <ul class="dropdown-menu navbar-custom">
-            <% @states.each do |state| -%>
-            <li>
-              <%= link_to state, {controller: "states", action: "states", name: state} %>
-            </li>
-            <% end -%>
-          </ul>
-        </li>
-        <li class="page-scroll">
+  <ul id="states" class="dropdown-content">
+    <% @states.each do |state| -%>
+      <li>
+        <%= link_to state, {controller: "states", action: "states", name: state} %>
+      </li>
+    <% end -%>
+  </ul>
+
+  <nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+      <%= link_to ICEM, {controller: "welcome", action: "index"}, class:"brand-logo" %>
+      <ul class="right hide-on-med-and-down">
+        <li>
           <%= link_to "¿Quiénes somos?", {controller: "about", action:"index"} %>
         </li>
+        <li>
+          <a class="dropdown-button" href="#!" data-activates="states">Estados
+            <i class="material-icons right">arrow_drop_down</i>
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-button" href="#!" data-activates="indicators">Indicadores
+            <i class="material-icons right">arrow_drop_down</i>
+          </a>
+        </li>
       </ul>
-    </div>
-    <!-- /.navbar-collapse -->
-  </div>
-  <!-- /.container-fluid -->
-</nav>
 
-<body>
-  <%= yield %>
-  <footer class="text-center">
-    <div class="footer-below">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            © Ricardo Betancourt 2016. All rights reserved. Done by MakingDevs and Antena Labs
-          </div>
-        </div>
-      </div>
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
-  </footer>
+  </nav>
+  <%= yield %>
   <%= javascript_include_tag "application", params[:controller] %>
 </body>
 </html>
