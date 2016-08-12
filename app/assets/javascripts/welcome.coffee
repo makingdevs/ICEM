@@ -10,6 +10,10 @@ class App.AppHome
     element = '#graphs'
     @visualization = new App.Visualization(width, height, element)
     @bindEvents()
+    @initThirdParty()
+
+  initThirdParty: ->
+    $('.parallax').parallax()
 
   bindEvents: ->    
     $("#submitGraph").on("click", @findAndRetrieve)
