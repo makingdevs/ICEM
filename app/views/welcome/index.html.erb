@@ -1,5 +1,59 @@
-<header>
-  <div class="container-fluid" style="padding-top: 120px; background: -webkit-linear-gradient(top, rgba(240,249,255,1) 0%,rgba(203,235,255,0.89) 47%,rgba(163,220,255,0.77) 98%,rgba(161,219,255,0.77) 100%);">  
+<div id="index-banner" class="parallax-container z-depth-5">
+  <div class="section no-pad-bot">
+    <div class="container">
+      <br><br>
+      <h1 class="header center">Índices de crecimiento de los Estados de México</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">ICEM</h5>
+      </div>
+      <div class="row center">
+        <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light teal">Get Started</a>
+      </div>
+      <br><br>
+    </div>
+  </div>
+  <div class="parallax"><img src="https://drscdn.500px.org/photo/137915677/q%3D80_m%3D2000_k%3D1/cbd78eae2fc4af5ee6e007e59a32986b" alt="Unsplashed background img 1"></div>
+</div>
+
+<br/><br/>
+
+<div class="container">
+  <div class="section">
+    <div class="row">
+      <div class="col s12">
+        <h4>Vizualizacion</h4>
+        <div class="divider"></div>
+        <p>Selecciona los estdos y los indicadores que deseas comparar</p>
+        <div id="menu" class="row">
+          <div class="col s6">
+            <h6>Estados</h6>
+            <div id="states">
+              <% @states.each do |state| -%>
+              <%= check_box_tag(state, '', false, class: 'state') %>
+              <%= label_tag(state, state) %>
+              <% end -%>
+            </div>
+          </div>
+          <div class="col s6">
+            <h6>Indicadores</h6>
+            <div id="indicators">
+              <% @indicators.each do |indicator| -%>
+              <%= check_box_tag(indicator, '', false, class: 'indicator') %>
+              <%= label_tag(indicator, indicator) %>
+              <% end -%>
+            </div>
+          </div>
+          <div class="col s12 center-align">
+            <a id="submitGraph" class="btn waves-effect waves-light">Vizualizar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="section">
     <div class="row">
       <div class="col-md-8 col-sm-7">
         <div id="graphs"></div>
@@ -7,46 +61,56 @@
       <div class="col-md-4 col-sm-5">
         <div id="legend"></div>
       </div>
-      <div id="menu" class="col-md-12 col-sm-12">
-        <h3>Estados</h3>
-        <div id="states">
-          <% @states.each do |state| -%>
-            <%= label_tag(state, state) %>
-            <%= check_box_tag(state, '', false, class: 'state') %>
-          <% end -%>
-        </div>
-        <h3>Indicadores</h3>
-        <div id="states">
-          <% @indicators.each do |indicator| -%>
-            <%= label_tag(indicator, indicator) %>
-            <%= check_box_tag(indicator, '', false, class: 'indicator') %>
-          <% end -%>
-        </div>
-        <a id="submitGraph" class="btn btn-primary">Vizualizar</a>
+    </div>
+  </div>
+</div>
+
+
+<div class="parallax-container valign-wrapper">
+  <div class="section no-pad-bot">
+    <div class="container">
+      <div class="row center">
+        <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
       </div>
     </div>
   </div>
-</header>
+  <div class="parallax"><img src="https://drscdn.500px.org/photo/143585729/q%3D80_m%3D2000/8f3174f4b0239ce895e1b80dabae864a" alt="Unsplashed background img 3"></div>
+</div>
 
-<footer class="text-center">
-  <div class="footer-above">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <h2>¿Como es la vida?</h2>
-        </div>
+<footer class="page-footer teal">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">Company Bio</h5>
+        <p class="grey-text text-lighten-4">Hay más en la vida que los números fríos del PIB y las estadísticas económicas - Este índice permite comparar el bienestar de un estado a otro, basado en 11 temas de la OCDE ha identificado como indispensables, en las áreas de las condiciones materiales de vida y calidad de vida.</p>
+        <p class="grey-text text-lighten-4">¿Qué es lo que más importa a las personas en todo el mundo? Más de 100.000 usuarios del Índice de Vida Mejor en todo el mundo han compartido sus puntos de vista sobre lo que hace para una vida mejor.</p>
+        <%= link_to "¿Quiénes somos?", {controller: "about", action:"index"},class: "btn btn-lg btn-outline"%>
+
+
       </div>
-      <div class="row">
-        <div class="col-lg-4 col-lg-offset-2">
-          <p class="text-justify">Hay más en la vida que los números fríos del PIB y las estadísticas económicas - Este índice permite comparar el bienestar de un estado a otro, basado en 11 temas de la OCDE ha identificado como indispensables, en las áreas de las condiciones materiales de vida y calidad de vida.</p>
-        </div>
-        <div class="col-lg-4">
-          <p class="text-justify">¿Qué es lo que más importa a las personas en todo el mundo? Más de 100.000 usuarios del Índice de Vida Mejor en todo el mundo han compartido sus puntos de vista sobre lo que hace para una vida mejor.</p>
-        </div>
-        <div style="padding-bottom: 100px;" class="col-lg-8 col-lg-offset-2 text-center">
-          <%= link_to "¿Quiénes somos?", {controller: "about", action:"index"},class: "btn btn-lg btn-outline"%>
-        </div>
-      </div>  
+      <div class="col l3 s12">
+        <h5 class="white-text">Settings</h5>
+        <ul>
+          <li><a class="white-text" href="#!">Link 1</a></li>
+          <li><a class="white-text" href="#!">Link 2</a></li>
+          <li><a class="white-text" href="#!">Link 3</a></li>
+          <li><a class="white-text" href="#!">Link 4</a></li>
+        </ul>
+      </div>
+      <div class="col l3 s12">
+        <h5 class="white-text">Connect</h5>
+        <ul>
+          <li><a class="white-text" href="#!">Link 1</a></li>
+          <li><a class="white-text" href="#!">Link 2</a></li>
+          <li><a class="white-text" href="#!">Link 3</a></li>
+          <li><a class="white-text" href="#!">Link 4</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+      Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
     </div>
   </div>
 </footer>
