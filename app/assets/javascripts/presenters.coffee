@@ -2,15 +2,11 @@ class App.Legend
 
   constructor: (@template, @element) ->
 
-  initThirdParty: ->
-    $('input[type="range"]').slider()
-
   render: (data) ->
     source = $(@template).html()
     resultTemplate = Handlebars.compile(source)
     html = resultTemplate(data)
     $(@element).html html
-    @initThirdParty()
 
 class App.Visualization
   constructor: (@width, @height, @element) ->
