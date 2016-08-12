@@ -11,8 +11,7 @@
 // about supported directives.
 //
 //= require jquery/dist/jquery
-//= require bootstrap-sass/assets/javascripts/bootstrap
+//= require materialize/dist/js/materialize
 //= require d3/d3
 //= require handlebars/handlebars
 //= require jquery-loading-overlay/src/loadingoverlay
-//= require freelancer
