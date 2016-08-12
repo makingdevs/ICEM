@@ -1,5 +1,6 @@
 @import "compass";
-@import "bootstrap-sass/assets/stylesheets/bootstrap";
+
+$roboto-font-path: 'materialize/fonts/roboto/';
+@import 'materialize/sass/materialize';
+
 @import "font-awesome";
-@import "seiyria-bootstrap-slider/dist/css/bootstrap-slider";
-@import "freelancer";
