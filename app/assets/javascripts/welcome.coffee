@@ -36,6 +36,7 @@ class App.AppHome
 
   renderVisualization: =>
     @visualization.getData()
-    $("#menu").html("")
+    $('#menu').fadeOut 'slow', ->
+      $('#menu').html ''
 
 new App.AppHome()
