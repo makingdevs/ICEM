@@ -77,43 +77,5 @@
   <div class="parallax"><img src="https://drscdn.500px.org/photo/143585729/q%3D80_m%3D2000/8f3174f4b0239ce895e1b80dabae864a" alt="Unsplashed background img 3"></div>
 </div>
 
-<footer class="page-footer teal">
-  <div class="container">
-    <div class="row">
-      <div class="col l6 s12">
-        <h5 class="white-text">Company Bio</h5>
-        <p class="grey-text text-lighten-4">Hay más en la vida que los números fríos del PIB y las estadísticas económicas - Este índice permite comparar el bienestar de un estado a otro, basado en 11 temas de la OCDE ha identificado como indispensables, en las áreas de las condiciones materiales de vida y calidad de vida.</p>
-        <p class="grey-text text-lighten-4">¿Qué es lo que más importa a las personas en todo el mundo? Más de 100.000 usuarios del Índice de Vida Mejor en todo el mundo han compartido sus puntos de vista sobre lo que hace para una vida mejor.</p>
-        <%= link_to "¿Quiénes somos?", {controller: "about", action:"index"},class: "btn btn-lg btn-outline"%>
-
-
-      </div>
-      <div class="col l3 s12">
-        <h5 class="white-text">Settings</h5>
-        <ul>
-          <li><a class="white-text" href="#!">Link 1</a></li>
-          <li><a class="white-text" href="#!">Link 2</a></li>
-          <li><a class="white-text" href="#!">Link 3</a></li>
-          <li><a class="white-text" href="#!">Link 4</a></li>
-        </ul>
-      </div>
-      <div class="col l3 s12">
-        <h5 class="white-text">Connect</h5>
-        <ul>
-          <li><a class="white-text" href="#!">Link 1</a></li>
-          <li><a class="white-text" href="#!">Link 2</a></li>
-          <li><a class="white-text" href="#!">Link 3</a></li>
-          <li><a class="white-text" href="#!">Link 4</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="footer-copyright">
-    <div class="container">
-      Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
-    </div>
-  </div>
-</footer>
-
 <%= hidden_field('data','url',:value => url_for(controller: 'welcome', action: 'data_sample' )) %>
 <%= render "welcome/legend_indicator.html" %>
