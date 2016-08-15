@@ -69,6 +69,7 @@ class App.Visualization
       return
     @renderLegend()
     @bindEvents()
+    Materialize.fadeInImage('#graph')
 
   updateDraw: =>
     @filterStateAndIndicatorsList.forEach (state) =>
