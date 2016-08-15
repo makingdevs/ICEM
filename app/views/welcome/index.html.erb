@@ -7,7 +7,7 @@
         <h5 class="header col s12 light">ICEM</h5>
       </div>
       <div class="row center">
-        <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light teal">Get Started</a>
+        <a href="#explore" id="download-button" class="btn-large waves-effect waves-light teal">Explora</a>
       </div>
       <br><br>
     </div>
@@ -17,16 +17,16 @@
 
 <br/><br/>
 
-<div class="container">
+<div class="container" id="explore">
   <div class="section">
     <div class="row">
       <div class="col s12">
-        <h4>Vizualizacion</h4>
+        <h4>Explora y conoce México</h4>
         <div class="divider"></div>
         <p>Selecciona los estados e indicadores que deseas comparar</p>
         <div id="menu" class="row">
           <div class="col m12 s12 l6">
-            <h6>Estados</h6>
+            <h6>¿Qué estados quieres explorar? (Elige al menos dos)</h6>
             <% @states.each do |state| -%>
             <div class="col s6">
               <%= check_box_tag(state, '', false, class: 'state') %>
@@ -35,7 +35,7 @@
             <% end -%>
           </div>
           <div class="col m12 s12 l6">
-            <h6>Indicadores</h6>
+            <h6>¿Qué quieres explorar de estos estos estados?</h6>
             <% @indicators.each do |indicator| -%>
             <div class="col s6">
               <%= check_box_tag(indicator, '', false, class: 'indicator') %>
@@ -44,7 +44,7 @@
             <% end -%>
           </div>
           <div class="col s12 center-align">
-            <a id="submitGraph" class="btn waves-effect waves-light">Vizualizar</a>
+            <a id="submitGraph" class="btn waves-effect waves-light">Visualizar</a>
           </div>
         </div>
       </div>
@@ -55,10 +55,10 @@
 <div class="container">
   <div class="section">
     <div class="row">
-      <div class="col-md-8 col-sm-7">
+    <div class="col m8">
         <div id="graphs"></div>
       </div>
-      <div class="col-md-4 col-sm-5">
+      <div class="col m4">
         <div id="legend"></div>
       </div>
     </div>
@@ -70,7 +70,7 @@
   <div class="section no-pad-bot">
     <div class="container">
       <div class="row center">
-        <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+        <h5 class="header col s12 light">¿Qué es lo que le importa a la mayoría de los mexicanos a lo largo del país?</h5>
       </div>
     </div>
   </div>
