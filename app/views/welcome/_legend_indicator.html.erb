@@ -1,9 +1,26 @@
 <script id="legend-table-template" type="text/x-handlebars-template">
-      {{#each this}}
-        <div class="col s12">
-          <div style="width:18px;height:18px;background-color:{{color}};"></div>
+  <div class="card light-blue lighten-5 z-depth-5">
+    <div class="card-content">
+      <span class="card-title">Explorar los indicadores</span>
+      <div class="divider blue-grey darken-4"></div>
+      <br/>
+      <div class="row">
+        {{#each this}}
+        <div class="col s9">
           <input type="checkbox" name="{{name}}" id="{{name}}" {{checked}}>
           <label for="{{name}}">{{name}}</label>
         </div>
-      {{/each}}
+        <div class="col s3">
+          <div style="width:18px;height:18px;background-color:{{color}};display: inline-block;"></div>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+    <div class="card-action">
+    <div class="valign-wrapper">
+      <i class="material-icons teal-text valign">autorenew</i>
+      <%= link_to "Comienza de nuevo", {:action=> "index",:controller => "welcome", :id => "explore"}, class:"teal-text valign"%>
+    </div>
+    </div>
+  </div>
 </script>
