@@ -1,13 +1,9 @@
 <script id="legend-table-template" type="text/x-handlebars-template">
-  <table class="table">
-    <tbody>
       {{#each this}}
-        <tr>
-          <td><div style="width:18px;height:18px;background-color:{{color}};"></div></td>
-          <td style="color: black;">{{name}}</td>
-          <td><input type="checkbox" name="{{name}}" {{checked}}></td>
-        </tr>
+        <div class="col s12">
+          <div style="width:18px;height:18px;background-color:{{color}};"></div>
+          <input type="checkbox" name="{{name}}" id="{{name}}" {{checked}}>
+          <label for="{{name}}">{{name}}</label>
+        </div>
       {{/each}}
-    </tbody>
-  </table>
 </script>
