@@ -23,25 +23,25 @@
       <div class="col s12">
         <h4>Vizualizacion</h4>
         <div class="divider"></div>
-        <p>Selecciona los estdos y los indicadores que deseas comparar</p>
+        <p>Selecciona los estados e indicadores que deseas comparar</p>
         <div id="menu" class="row">
-          <div class="col s6">
+          <div class="col m12 s12 l6">
             <h6>Estados</h6>
-            <div id="states">
-              <% @states.each do |state| -%>
+            <% @states.each do |state| -%>
+            <div class="col s6">
               <%= check_box_tag(state, '', false, class: 'state') %>
               <%= label_tag(state, state) %>
-              <% end -%>
             </div>
+            <% end -%>
           </div>
-          <div class="col s6">
+          <div class="col m12 s12 l6">
             <h6>Indicadores</h6>
-            <div id="indicators">
-              <% @indicators.each do |indicator| -%>
+            <% @indicators.each do |indicator| -%>
+            <div class="col s6">
               <%= check_box_tag(indicator, '', false, class: 'indicator') %>
               <%= label_tag(indicator, indicator) %>
-              <% end -%>
             </div>
+            <% end -%>
           </div>
           <div class="col s12 center-align">
             <a id="submitGraph" class="btn waves-effect waves-light">Vizualizar</a>
