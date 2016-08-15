@@ -11,17 +11,17 @@
 
   <ul id="indicators" class="dropdown-content">
     <% @indicators.each do |indicator| -%>
-      <li>
-        <%= link_to indicator, {controller: "indicators", action: "indicators", name: indicator} %>
-      </li>
+    <li>
+      <%= link_to indicator, {controller: "indicators", action: "indicators", name: indicator} %>
+    </li>
     <% end -%>
   </ul>
 
   <ul id="states" class="dropdown-content">
     <% @states.each do |state| -%>
-      <li>
-        <%= link_to state, {controller: "states", action: "states", name: state} %>
-      </li>
+    <li>
+      <%= link_to state, {controller: "states", action: "states", name: state} %>
+    </li>
     <% end -%>
   </ul>
 
@@ -51,6 +51,32 @@
     </div>
   </nav>
   <%= yield %>
+  <footer class="page-footer teal">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">ICEM</h5>
+          <p class="grey-text text-lighten-4">Hay más en la vida que los números fríos del PIB y las estadísticas económicas - Este índice permite comparar el bienestar de un estado a otro, basado en 11 temas de la OCDE ha identificado como indispensables, en las áreas de las condiciones materiales de vida y calidad de vida.</p>
+          <%= link_to "¿Quiénes somos?", {controller: "about", action:"index"},class: "btn btn-lg btn-outline"%>
+        </div>
+        <div class="col l3 s12 offset-l3">
+          <h5 class="white-text">Indicadores</h5>
+          <ul id="indicators">
+            <% @indicators.each do |indicator| -%>
+            <li>
+              <%= link_to indicator, {controller: "indicators", action: "indicators", name: indicator}, class: "white-text" %>
+            </li>
+            <% end -%>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        © Ricardo Betancourt 2016. All rights reserved. Done by Making Devs / Antena Labs
+      </div>
+    </div>
+  </footer>
   <%= javascript_include_tag "application", params[:controller] %>
 </body>
 </html>
