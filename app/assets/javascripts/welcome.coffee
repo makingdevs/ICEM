@@ -57,9 +57,4 @@ class App.AppHome
     $('#menu').fadeOut 'slow', ->
       $('#menu').html ''
 
-
-  #4 - 300 - 350
-
-  #todos - 120 - 135
-
 new App.AppHome()
