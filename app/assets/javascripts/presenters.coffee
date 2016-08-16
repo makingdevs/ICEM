@@ -21,6 +21,7 @@ class App.Visualization
     @stateList = []
     @filterStateList = []
     @filterStateAndIndicatorsList = []
+    @magicNumber = 0
 
   wrapperCharsToNumber: (row) ->
     for prop of row
@@ -52,7 +53,7 @@ class App.Visualization
     (counter += 1 if indicator.value > 0) for indicator in state.indicators
     avg = ((Math.round(avg * 10) / 10 ) / (counter))
     avg = Math.round(avg * 10) / 10 
-    50 - (avg*40)
+    @magicNumber - (avg*40)
 
   draw: -> 
     @filterStateAndIndicatorsList.forEach (state, index) =>
