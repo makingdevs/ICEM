@@ -3,3 +3,7 @@
 g.journal.active{cursor:pointer;}
 text.label{font-size:12px;font-weight:bold;cursor:pointer;}
 text.value{font-size:12px;font-weight:bold;}
+.text-justify {
+    text-align: justify;
+    text-justify: inter-word;
+}
