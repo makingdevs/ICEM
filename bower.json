@@ -14,6 +14,7 @@
     "handlebars": "~4.0.5",
     "jquery-loading-overlay": "https://github.com/gasparesganga/jquery-loading-overlay.git",
     "seiyria-bootstrap-slider": "~9.1.1",
-    "materialize": "~0.97.7"
+    "materialize": "~0.97.7",
+    "ionrangeslider": "~2.1.4"
   }
 }
