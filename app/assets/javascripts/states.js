@@ -180,3 +180,5 @@ function interpolateValues(values, year) {
   return a[1];
 }
 });
+
+$('.parallax').parallax()
