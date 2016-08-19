@@ -15,3 +15,5 @@
 //= require d3/d3
 //= require handlebars/handlebars
 //= require jquery-loading-overlay/src/loadingoverlay
+//= require highcharts/highmaps
+//= require mx-all
