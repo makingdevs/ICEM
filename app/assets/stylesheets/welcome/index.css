@@ -7,6 +7,10 @@
   stroke: #fff;
 }
 
-.parallax-container {
+.parallax-short {
+  height: 500px;
+}
+
+.parallax-large {
   height: 700px;
 }
