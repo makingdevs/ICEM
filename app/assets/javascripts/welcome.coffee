@@ -1,6 +1,7 @@
 #= require app
 #= require models
 #= require presenters
+#= require map
 
 class App.AppHome
 
@@ -58,3 +59,4 @@ class App.AppHome
       $('#menu').html ''
 
 new App.AppHome()
+new App.Map()
