@@ -1,6 +1,6 @@
 #= require app
 
-class App.Example
+class App.Map
   
   constructor: ->
     @start()
@@ -81,4 +81,4 @@ class App.Example
             format: '{point.name}'
         } ]
   
-new App.Example()
+new App.Map()
