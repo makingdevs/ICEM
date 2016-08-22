@@ -13,8 +13,10 @@
         <div class="row">
           <% @indicators.each do |indicator| -%>
           <div class="col s9">
-            <%= check_box_tag(indicator, '', false, class: 'indicator') %>
-            <%= label_tag(indicator, indicator) %>
+            <p>
+              <input class="with-gap" name="indicators" type="radio" id=<%= indicator %> checked />
+              <label for=<%= indicator %> ><%= indicator %></label>
+            </p>
           </div>
           <div class="col s3">
             <div style="width:18px;height:18px;background-color:      ;display: inline-block;"></div>
