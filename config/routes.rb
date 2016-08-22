@@ -6,8 +6,7 @@ Rails.application.routes.draw do
   get '/about', to: 'about#index'
   get '/indicators', to: 'indicators#indicators'
   get '/indicators/data', to: 'indicators#data'
-  get '/example', to: 'example#index'
-  get '/example/data', to: 'example#data_sample'
+  get '/map/data', to: 'welcome#data_map'
   root 'welcome#index'
 
 end
