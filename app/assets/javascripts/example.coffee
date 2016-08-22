@@ -5,7 +5,7 @@ $.get("/example/data").done (data) ->
       enabled: true
       buttonOptions: verticalAlign: 'bottom'
     plotOptions: series: point: events: click: ->
-      window.location.assign('/product/search/'+ @name)
+      window.location.assign('/states?name='+ @name)
       return
     credits: {
       enabled: false
