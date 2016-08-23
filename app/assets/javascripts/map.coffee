@@ -4,7 +4,7 @@ class App.Map
     @start()
 
   start: -> 
-    $.get("/map/data").done (data) =>
+    $.get("/map/data?indicator=VI").done (response) =>
       $('#container').highcharts 'Map',
         title: text: ''
         mapNavigation:
@@ -20,8 +20,8 @@ class App.Map
           min: 1
           max: 10
           type: 'logarithmic'
-          minColor: '#d1ecff'
-          maxColor: '#1F77B4'
+          minColor: '#FFFFFF'
+          maxColor: response.color
         }
         legend: {
           enabled: false
@@ -30,7 +30,7 @@ class App.Map
           enabled: false
         }
         series: [ {
-          data: data
+          data: response.data
           mapData: Highcharts.maps['countries/mx/mx-all']
           joinBy: 'hc-key'
           states: hover: color: '#BADA55'
@@ -39,12 +39,17 @@ class App.Map
             format: '{point.name}'
         } ]
       @bindEvents()
+      @checkRadio()
+
+  checkRadio: ->
+    $("#Vivienda_map").attr("checked","checked")
   
   bindEvents: ->
     $(".with-gap").on("click", @lookUpChanges)
   
+  #TODO refactor de metodo
   lookUpChanges: (event) =>
-    $.get("/map/data?indicator=#{$(event.target).attr('id')}").done (data) =>
+    $.get("/map/data?indicator=#{$(event.target).attr('code')}").done (response) =>
       $('#container').highcharts 'Map',
         title: text: ''
         mapNavigation:
@@ -60,8 +65,8 @@ class App.Map
           min: 1
           max: 10
           type: 'logarithmic'
-          minColor: '#d1ecff'
-          maxColor: '#1F77B4'
+          minColor: '#FFFFFF'
+          maxColor: response.color
         }
         legend: {
           enabled: false
@@ -70,7 +75,7 @@ class App.Map
           enabled: false
         }
         series: [ {
-          data: data
+          data: response.data
           mapData: Highcharts.maps['countries/mx/mx-all']
           joinBy: 'hc-key'
           states: hover: color: '#BADA55'
