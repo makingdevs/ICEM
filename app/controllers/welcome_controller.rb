@@ -5,9 +5,13 @@ require 'enums/indicators'
 class WelcomeController < ApplicationController
 
   def index
-    @indicators = Indicators.constants.collect  do |indicator| Indicators.const_get(indicator) end
+    @indicators = Indicators.constants.collect  do |indicator| Indicators.const_get(indicator).split(",")[0] end
+    @indicators_map = Indicators.constants.collect  do |indicator| 
+      name, color = Indicators.const_get(indicator).split(",")
+      {name:name, color:color, code:indicator}
+    end
     @states = States.constants.collect  do |state| States.const_get(state) end
-    render states: @states, indicators: @indicators
+    render states: @states, indicators: @indicators, indicators_map: @indicators_map
   end
 
   def data_sample
@@ -15,7 +19,11 @@ class WelcomeController < ApplicationController
   end
 
   def data_map
-    render json: [
+    render json: 
+    {
+      color: Indicators.const_get(params[:indicator]).split(",")[1],
+      data: 
+                  [
                     {
                       'hc-key': 'mx-3622',
                       'value': Random.rand(10)+1
@@ -149,6 +157,7 @@ class WelcomeController < ApplicationController
                       'value': Random.rand(10)+1
                     }
                   ]
+                }
   end
 
 end
