@@ -90,15 +90,15 @@
             <div class="divider blue-grey darken-4"></div>
             <br/>
             <div class="row">
-              <% @indicators.each do |indicator| -%>
+              <% @indicators_map.each do |indicator| -%>
               <div class="col s9">
                 <p>
-                  <input class="with-gap" name="indicators_map" type="radio" id=<%= indicator+"_map" %> checked />
-                  <label for=<%= indicator+"_map" %> ><%= indicator %></label>
+                  <input class="with-gap" name="indicators_map" type="radio" id=<%= indicator[:name]+"_map" %> code=<%= indicator[:code] %>  />
+                  <label for=<%= indicator[:name]+"_map" %> ><%= indicator[:name] %></label>
                 </p>
               </div>
               <div class="col s3">
-                <div style="width:18px;height:18px;background-color:      ;display: inline-block;"></div>
+                <div style="width:18px;height:18px;background-color:<%=indicator[:color]%>;display: inline-block;"></div>
               </div>
               <% end -%>
             </div>
