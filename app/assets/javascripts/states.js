@@ -1,4 +1,4 @@
-function x(d) { return d.income; }
+function x(d) { return d.yearLapsing; }
 function y(d) { return d.lifeExpectancy; }
 function radius(d) { return d.population; }
 function color(d) { return d.region; }
@@ -10,7 +10,7 @@ width = 960 - margin.right,
 height = 500 - margin.top - margin.bottom;
 
 // Various scales. These domains make assumptions of data, naturally.
-var xScale = d3.scale.log().domain([100, 5e4]).range([0, width]),
+var xScale = d3.scale.log().domain([1990, 2009]).range([0, width]),
 yScale = d3.scale.linear().domain([10, 85]).range([height, 0]),
 radiusScale = d3.scale.sqrt().domain([0, 5e7]).range([0, 40]),
 colorScale = d3.scale.category10();
@@ -161,7 +161,7 @@ function interpolateData(year) {
     return {
       name: d.name,
       region: d.region,
-      income: interpolateValues(d.income, year),
+      yearLapsing: interpolateValues(d.yearLapsing, year),
       population: interpolateValues(d.population, year),
       lifeExpectancy: interpolateValues(d.lifeExpectancy, year)
     };
