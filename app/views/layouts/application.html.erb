@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,9 +43,9 @@
 
     <div id="states-dropdown" class="dropdown-content" style="width:700px">
       <div class="row">
-        <% @states.each do |state| -%>
+        <% @states.each do |key, name| -%>
         <div class="col m3">
-          <%= link_to state, {controller: "states", action: "states", name: state} %>
+          <%= link_to name, {controller: "states", action: "states", name: key} %>
         </div>
         <% end -%>
       </div>
