@@ -10,7 +10,7 @@ class WelcomeController < ApplicationController
       name, color = Indicators.const_get(indicator).split(",")
       {name:name, color:color, code:indicator}
     end
-    @states = States.constants.collect  do |state| States.const_get(state) end
+    @states = States.values
     render states: @states, indicators: @indicators, indicators_map: @indicators_map
   end
 

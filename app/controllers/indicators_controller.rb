@@ -7,7 +7,7 @@ class IndicatorsController < ApplicationController
   def indicators
     p params[:name]
     @indicators = Indicators.constants.collect  do |indicator| Indicators.const_get(indicator).split(",")[0] end
-    @states = States.constants.collect  do |state| States.const_get(state) end
+    @states = States.values
     render states: @states, Indicators: @indicators
   end
 
