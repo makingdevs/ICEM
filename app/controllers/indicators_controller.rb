@@ -5,7 +5,6 @@ require 'json'
 class IndicatorsController < ApplicationController
 
   def indicators
-    p params[:name]
     @indicators = Indicators.values
     @states = States.values
     render "indicators/#{params[:name].downcase}", states: @states, Indicators: @indicators
