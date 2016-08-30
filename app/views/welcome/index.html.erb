@@ -35,10 +35,10 @@
           </div>
           <div class="col m12 s12 l6">
             <h6>¿Qué quieres explorar de estos estos estados?</h6>
-            <% @indicators.each do |indicator| -%>
+            <% @indicators.each do |kay, name| -%>
             <div class="col s6">
-              <%= check_box_tag(indicator, '', false, class: 'indicator') %>
-              <%= label_tag(indicator, indicator) %>
+              <%= check_box_tag(name[:name], '', false, class: 'indicator') %>
+              <%= label_tag(name[:name], name[:name]) %>
             </div>
             <% end -%>
           </div>
