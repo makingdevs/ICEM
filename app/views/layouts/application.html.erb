@@ -33,9 +33,9 @@
 
     <div id="indicators-dropdown" class="dropdown-content" style="width:500px">
       <div class="row">
-        <% @indicators.each do |indicator| -%>
+        <% @indicators.each do |key, name| -%>
         <div class="col m6">
-          <%= link_to indicator, {controller: "indicators", action: "indicators", name: indicator} %>
+          <%= link_to name[:name], {controller: "indicators", action: "indicators", name: key} %>
         </div>
         <% end -%>
       </div>
@@ -64,9 +64,9 @@
         <div class="col l3 s12 offset-l3">
           <h5 class="white-text">Indicadores</h5>
           <ul id="indicators">
-            <% @indicators.each do |indicator| -%>
+            <% @indicators.each do |key, name| -%>
             <li>
-              <%= link_to indicator, {controller: "indicators", action: "indicators", name: indicator}, class: "white-text" %>
+              <%= link_to name[:name], {controller: "indicators", action: "indicators", name: key}, class: "white-text" %>
             </li>
             <% end -%>
           </ul>
