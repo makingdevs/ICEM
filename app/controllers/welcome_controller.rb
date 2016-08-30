@@ -6,7 +6,7 @@ class WelcomeController < ApplicationController
 
   def index
 
-    @indicators = Indicators.values.collect do |key, value| value[:name] end
+    @indicators = Indicators.values
     @indicators_map = Indicators.values.collect  do |key, value| 
       {name:value[:name], color:value[:color], code:key}
     end

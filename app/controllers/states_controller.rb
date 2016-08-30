@@ -4,7 +4,7 @@ require 'enums/indicators'
 class StatesController < ApplicationController
 
   def states
-    @indicators = Indicators.values.collect do |key, value| value[:name] end
+    @indicators = Indicators.values
     @states = States.values
     render "states/#{params[:name].downcase}",  states: @states, Indicators: @indicators
   end
