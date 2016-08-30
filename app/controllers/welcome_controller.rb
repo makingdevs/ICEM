@@ -5,10 +5,10 @@ require 'enums/indicators'
 class WelcomeController < ApplicationController
 
   def index
-    @indicators = Indicators.constants.collect  do |indicator| Indicators.const_get(indicator).split(",")[0] end
-    @indicators_map = Indicators.constants.collect  do |indicator| 
-      name, color = Indicators.const_get(indicator).split(",")
-      {name:name, color:color, code:indicator}
+
+    @indicators = Indicators.values.collect do |key, value| value[:name] end
+    @indicators_map = Indicators.values.collect  do |key, value| 
+      {name:value[:name], color:value[:color], code:key}
     end
     @states = States.values
     render states: @states, indicators: @indicators, indicators_map: @indicators_map
@@ -19,9 +19,10 @@ class WelcomeController < ApplicationController
   end
 
   def data_map
+    indicator = Indicators.values.find {|key, value| key.to_s == params[:indicator]}
     render json: 
     {
-      color: Indicators.const_get(params[:indicator]).split(",")[1],
+      color: indicator[1][:color],
       data: 
                   [
                     {
