@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ICEM</title>
+  <title>Índices de inclusión de México</title>
   <%= csrf_meta_tags %>
   <%= stylesheet_link_tag 'application', params[:controller], media: 'all'%>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -12,7 +12,9 @@
 
   <nav class="white" role="navigation">
     <div class="nav-wrapper container">
-      <%= link_to ICEM, {controller: "welcome", action: "index"}, class:"brand-logo" %>
+      <%= link_to controller: "welcome", action: "index" do %>
+        <img src="/assets/logo.png" height="71"/>
+      <% end %>
       <ul class="right hide-on-med-and-down">
         <li>
           <%= link_to "¿Quiénes somos?", {controller: "about", action:"index"} %>
@@ -57,7 +59,7 @@
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
-          <h5 class="white-text">ICEM</h5>
+          <img src="/assets/logo_white.png" height="100"/>
           <p class="grey-text text-lighten-4">Hay más en la vida que los números fríos del PIB y las estadísticas económicas - Este índice permite comparar el bienestar de un estado a otro, basado en 11 temas de la OCDE ha identificado como indispensables, en las áreas de las condiciones materiales de vida y calidad de vida.</p>
           <%= link_to "¿Quiénes somos?", {controller: "about", action:"index"},class: "btn btn-lg btn-outline"%>
         </div>
