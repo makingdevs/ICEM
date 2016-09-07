@@ -18,147 +18,29 @@ class WelcomeController < ApplicationController
     render plain: open('http://icem.com.s3.amazonaws.com/data_states.csv'){ |f| f.read }
   end
 
+  def read_csv_states
+    states = []
+    CSV.foreach("estadisticas.csv",headers:true) do |row| 
+      states << row.to_hash
+    end
+    states
+  end
+
   def data_map
+    states = read_csv_states()
     indicator = Indicators.values.find {|key, value| key.to_s == params[:indicator]}
+    data = States.values.collect { |key, value| 
+      state = states.find { |state| state["state"] == value[:name]}
+      {
+        'hc-key': value[:code],
+        'value': state[indicator[1][:name]].to_i
+      }
+    }
     render json: 
     {
       color: indicator[1][:color],
-      data: 
-                  [
-                    {
-                      'hc-key': 'mx-3622',
-                      'value': Random.rand(10)+1
-                    },
-                    {
-                      'hc-key': 'mx-bc',
-                      'value': Random.rand(10)+1
-                    },
-                    {
-                      'hc-key': 'mx-bs',
-                      'value': Random.rand(10)+1
-                    },
-                    {
-                      'hc-key': 'mx-so',
-                      'value': Random.rand(10)+1
-                    },
-                    {
-                      'hc-key': 'mx-cl',
-                      'value': Random.rand(10)+1
-                    },
-                    {
-                      'hc-key': 'mx-na',
-                      'value': Random.rand(10)+1
-                    },
-                    {
-                      'hc-key': 'mx-cm',
-                      'value': Random.rand(10)+1
-                    },
-                    {
-                      'hc-key': 'mx-qr',
-                      'value': Random.rand(10)+1
-                    },
-                    {
-                      'hc-key': 'mx-mx',
-                      'value': Random.rand(10)+1
-                    },
-                    {
-                      'hc-key': 'mx-mo',
-                      'value': Random.rand(10)+1
-                    },
-                    {
-                      'hc-key': 'mx-df',
-                      'value': Random.rand(10)+1
-                    },
-                    {
-                      'hc-key': 'mx-qt',
-                      'value': Random.rand(10)+1
-                    },
-                    {
-                      'hc-key': 'mx-tb',
-                      'value': Random.rand(10)+1
-                    },
-                    {
-                      'hc-key': 'mx-cs',
-                      'value': Random.rand(10)+1
-                    },
-                    {
-                      'hc-key': 'mx-nl',
-                      'value': Random.rand(10)+1
-                    },
-                    {
-                      'hc-key': 'mx-si',
-                      'value': Random.rand(10)+1
-                    },
-                    {
-                      'hc-key': 'mx-ch',
-                      'value': Random.rand(10)+1
-                    },
-                    {
-                      'hc-key': 'mx-ve',
-                      'value': Random.rand(10)+1
-                    },
-                    {
-                      'hc-key': 'mx-za',
-                      'value': Random.rand(10)+1
-                    },
-                    {
-                      'hc-key': 'mx-ag',
-                      'value': Random.rand(10)+1
-                    },
-                    {
-                      'hc-key': 'mx-ja',
-                      'value': Random.rand(10)+1
-                    },
-                    {
-                      'hc-key': 'mx-mi',
-                      'value': Random.rand(10)+1
-                    },
-                    {
-                      'hc-key': 'mx-oa',
-                      'value': Random.rand(10)+1
-                    },
-                    {
-                      'hc-key': 'mx-pu',
-                      'value': Random.rand(10)+1
-                    },
-                    {
-                      'hc-key': 'mx-gr',
-                      'value': Random.rand(10)+1
-                    },
-                    {
-                      'hc-key': 'mx-tl',
-                      'value': Random.rand(10)+1
-                    },
-                    {
-                      'hc-key': 'mx-tm',
-                      'value': Random.rand(10)+1
-                    },
-                    {
-                      'hc-key': 'mx-co',
-                      'value': Random.rand(10)+1
-                    },
-                    {
-                      'hc-key': 'mx-yu',
-                      'value': Random.rand(10)+1
-                    },
-                    {
-                      'hc-key': 'mx-dg',
-                      'value': Random.rand(10)+1
-                    },
-                    {
-                      'hc-key': 'mx-gj',
-                      'value': Random.rand(10)+1
-                    },
-                    {
-                      'hc-key': 'mx-sl',
-                      'value': Random.rand(10)+1
-                    },
-                    {
-                      'hc-key': 'mx-hg',
-                      'value': Random.rand(10)+1
-                    }
-                  ]
-                }
+      data:data
+    }
   end
 
 end
