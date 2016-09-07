@@ -28,8 +28,8 @@
             <h6>¿Qué estados quieres explorar? (Elige al menos dos)</h6>
             <% @states.each do |key, name| -%>
             <div class="col s6">
-              <%= check_box_tag(name, '', false, class: 'state') %>
-              <%= label_tag(name, name) %>
+              <%= check_box_tag(name[:name], '', false, class: 'state') %>
+              <%= label_tag(name[:name], name[:name]) %>
             </div>
             <% end -%>
           </div>
