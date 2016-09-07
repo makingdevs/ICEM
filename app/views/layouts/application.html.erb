@@ -47,7 +47,7 @@
       <div class="row">
         <% @states.each do |key, name| -%>
         <div class="col m3">
-          <%= link_to name, {controller: "states", action: "states", name: key} %>
+          <%= link_to name[:name], {controller: "states", action: "states", name: key} %>
         </div>
         <% end -%>
       </div>
