@@ -17,8 +17,8 @@ class App.Map
           enabled: false
         }
         colorAxis: {
-          min: 1
-          max: 10
+          min: 0.1
+          max: 1
           type: 'logarithmic'
           minColor: '#FFFFFF'
           maxColor: response.color
@@ -62,8 +62,8 @@ class App.Map
           enabled: false
         }
         colorAxis: {
-          min: 1
-          max: 10
+          min: 0.01
+          max: 1
           type: 'logarithmic'
           minColor: '#FFFFFF'
           maxColor: response.color
