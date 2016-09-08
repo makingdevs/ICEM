@@ -18,22 +18,25 @@ class WelcomeController < ApplicationController
     render plain: open('http://icem.com.s3.amazonaws.com/data_states.csv'){ |f| f.read }
   end
 
-  def read_csv_states
+  def data_map
     states = []
     CSV.foreach("estadisticas.csv",headers:true) do |row| 
       states << row.to_hash
     end
-    states
-  end
-
-  def data_map
-    states = read_csv_states()
     indicator = Indicators.values.find {|key, value| key.to_s == params[:indicator]}
+
+    max_indicator = states.max_by { |e| 
+      e[indicator[1][:name]].to_f
+    }[indicator[1][:name]].to_f
+    
+    list_indicator_state = states.collect { |state| state[indicator[1][:name]].to_f }
+
     data = States.values.collect { |key, value| 
       state = states.find { |state| state["state"] == value[:name]}
+      valor = (1 / max_indicator) * state[indicator[1][:name]].to_f
       {
         'hc-key': value[:code],
-        'value': state[indicator[1][:name]].to_i
+        'value': valor
       }
     }
     render json: 
