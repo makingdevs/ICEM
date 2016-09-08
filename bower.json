@@ -16,6 +16,7 @@
     "seiyria-bootstrap-slider": "~9.1.1",
     "materialize": "~0.97.7",
     "ionrangeslider": "~2.1.4",
-    "highcharts": "~4.2.6"
+    "highcharts": "~4.2.6",
+    "material-design-icons-iconfont": "~3.0.0"
   }
 }
