@@ -11,7 +11,7 @@
   <nav class="white" role="navigation">
     <div class="nav-wrapper container">
       <%= link_to controller: "welcome", action: "index" do %>
-        <%= image_tag("logo.png", height: '71', width: '210') %>
+        <%= image_tag("LogoColor1.png", height: '70', width: '260') %>
       <% end %>
       <ul class="right hide-on-med-and-down">
         <li>
@@ -53,13 +53,13 @@
 
   </nav>
   <%= yield %>
-  <footer class="page-footer teal">
+  <footer class="page-footer cyan darken-2">
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
-          <%= image_tag("logo_white.png", height: '110', width: '310') %>
+          <%= image_tag("LogoColor2.png", height: '100', width: '370') %>
           <p class="grey-text text-lighten-4">Hay más en la vida que los números fríos del PIB y las estadísticas económicas - Este índice permite comparar el bienestar de un estado a otro, basado en 11 temas de la OCDE ha identificado como indispensables, en las áreas de las condiciones materiales de vida y calidad de vida.</p>
-          <%= link_to "¿Quiénes somos?", {controller: "about", action:"index"},class: "btn btn-lg btn-outline"%>
+          <%= link_to "¿Quiénes somos?", {controller: "about", action:"index"},class: "btn btn-lg btn-outline blue-grey"%>
         </div>
         <div class="col l3 s12 offset-l3">
           <h5 class="white-text">Indicadores</h5>
